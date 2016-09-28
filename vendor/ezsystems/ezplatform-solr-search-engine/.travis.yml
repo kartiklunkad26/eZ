@@ -1,0 +1,42 @@
+## Run on trusty environment as solr dies all the time on containers after travis move to gce
+sudo: required
+dist: trusty
+
+language: php
+
+cache:
+  directories:
+    - $HOME/.composer/cache/files
+
+matrix:
+    include:
+        - php: 7.0
+          env: TEST_CONFIG="phpunit.xml"
+        - php: 5.5
+          env: TEST_CONFIG="phpunit-integration-legacy-solr.xml" SOLR_VERSION="4.10.4" CORES_SETUP="dedicated" SOLR_CONFS="lib/Resources/config/solr/schema.xml lib/Resources/config/solr/custom-fields-types.xml lib/Resources/config/solr/language-fieldtypes.xml" SOLR_CORES="core0 core1 core2 core3"
+        - php: 5.5
+          env: TEST_CONFIG="phpunit-integration-legacy-solr.xml" SOLR_VERSION="4.10.4" CORES_SETUP="shared"    SOLR_CONFS="lib/Resources/config/solr/schema.xml lib/Resources/config/solr/custom-fields-types.xml lib/Resources/config/solr/language-fieldtypes.xml" SOLR_CORES="core0 core1 core2 core3"
+        - php: 5.6
+          env: TEST_CONFIG="phpunit-integration-legacy-solr.xml" SOLR_VERSION="4.10.4" CORES_SETUP="single"    SOLR_CONFS="lib/Resources/config/solr/schema.xml lib/Resources/config/solr/custom-fields-types.xml lib/Resources/config/solr/language-fieldtypes.xml"
+
+# test only master and stable branches (+ Pull requests against those)
+branches:
+    only:
+        - master
+        - /^\d.\d+$/
+
+before_script:
+    - phpenv config-rm xdebug.ini
+    # Setup GitHub key to avoid api rate limit (pure auth read only key, no rights, for use by ezsystems repos only!)
+    - composer config -g github-oauth.github.com "d0285ed5c8644f30547572ead2ed897431c1fc09"
+    # Avoid memory issues on composer install
+    - echo "memory_limit=-1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+    - travis_retry composer update --prefer-dist --no-interaction
+    - if [ "$SOLR_VERSION" != "" ] ; then ./bin/.travis/init_solr.sh ; fi
+
+script:
+    - if [ "$SOLR_VERSION" = "" ] ; then php vendor/bin/phpunit --bootstrap tests/bootstrap.php -c $TEST_CONFIG ; fi
+    - if [ "$SOLR_VERSION" != "" ] ; then php -d memory_limit=-1 vendor/bin/phpunit --bootstrap tests/bootstrap.php -c vendor/ezsystems/ezpublish-kernel/$TEST_CONFIG ; fi
+
+notifications:
+    email: false

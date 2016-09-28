@@ -1,0 +1,14 @@
+/**
+ * Copyright (C) eZ Systems AS. All rights reserved.
+ * For full copyright and license information view LICENSE file distributed with this source code.
+ */
+
+.ez-view-dashboardblocksview {
+    background: #fff;
+}
+
+.ez-view-dashboardblocksview .ez-dashboard-title {
+    font-size: 1.6rem;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #999;
+}

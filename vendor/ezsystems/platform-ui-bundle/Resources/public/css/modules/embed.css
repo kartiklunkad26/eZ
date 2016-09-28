@@ -1,0 +1,40 @@
+/**
+ * Copyright (C) eZ Systems AS. All rights reserved.
+ * For full copyright and license information view LICENSE file distributed with this source code.
+ */
+
+[data-ezelement="ezembed"] {
+    display: inline-block;
+    margin: 0.5em 0.1em;
+    padding: 0.3em;
+    box-sizing: border-box;
+    line-height: 1;
+    min-height: auto;
+}
+
+[data-ezelement="ezembed"] .ez-embed-content {
+    margin: 0;
+}
+
+[data-ezelement="ezembed"] .ez-embed-content:before {
+    margin: 0 0.2em;
+    line-height: 100%;
+    height: 100%;
+    display: inline-block;
+}
+
+[data-ezelement="ezconfig"] {
+    display: none;
+}
+
+[data-ezalign="center"] {
+    text-align: center;
+}
+
+[data-ezalign="right"] {
+    float: right;
+}
+
+[data-ezalign="left"] {
+    float: left;
+}

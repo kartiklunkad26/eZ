@@ -1,0 +1,108 @@
+{# @var content_type \eZ\Publish\API\Repository\Values\ContentType\ContentType #}
+
+{% extends "eZPlatformUIBundle::pjax_admin.html.twig" %}
+
+{% trans_default_domain "content_type" %}
+
+{% set content_type_group = content_type.contentTypeGroups|first %}
+{% set content_type_name = content_type.names[language_code]|default('') %}
+{% set content_type_description = content_type.descriptions[language_code]|default('') %}
+
+{% block header_breadcrumbs %}
+    {% set breadcrumb_items = [
+        {link: path('admin_dashboard'), label: 'dashboard.title'|trans({}, 'dashboard')},
+        {link: path('admin_contenttype'), label: 'content_type.dashboard_title'|trans},
+        {link: path('admin_contenttypeGroupView', {'contentTypeGroupId': content_type_group.id}), label: content_type_group.identifier},
+        {link: null, label: content_type_name}
+    ] %}
+    {{ parent() }}
+{% endblock %}
+
+{% block header_title %}
+    <h1 class="ez-page-header-name" data-icon="&#xe61a;">{{ content_type_name }} [{{ 'content_type.content_count'|transchoice(content_count) }}]</h1>
+{% endblock %}
+
+{% block content %}
+    <section class="ez-serverside-content">
+
+        <p class="ez-technical-infos">
+            {{
+                "content_type.last_modified"|trans({
+                    "%date%": content_type.modificationDate|localizeddate(locale=app.request.locale),
+                    "%modifier%": modifier.login
+                })
+            }}
+        </p>
+
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <div>
+                    <h6>{{ "content_type.name"|trans }}</h6>
+                    {{ content_type_name }}
+                </div>
+
+                <div>
+                    <h6>{{ "content_type.identifier"|trans }}:</h6>
+                    {{ content_type.identifier }}
+                </div>
+
+                <div>
+                    <h6>{{ "content_type.description"|trans }}:</h6>
+                    {{ content_type_description }}
+                </div>
+
+                <div>
+                    <h6>{{ "content_type.name_schema"|trans }}:</h6>
+                    {{ content_type.nameSchema }}
+                </div>
+
+                <div>
+                    <h6>{{ "content_type.url_alias_schema"|trans }}:</h6>
+                    {{ content_type.urlAliasSchema }}
+                </div>
+            </div>
+
+            <div class="pure-u-1-2">
+                <div>
+                    <h6>{{ "content_type.container"|trans }}:</h6>
+                    <input type="checkbox" disabled{% if content_type.isContainer %} checked{% endif %}>
+                </div>
+
+                <div>
+                    <h6>{{ "content_type.default_availability"|trans }}:</h6>
+                    {{ content_type.defaultAlwaysAvailable ? "content_type.always_available"|trans : "content_type.no_always_available"|trans }}
+                </div>
+
+                <div>
+                    <h6>{{ "content_type.default_children_sorting"|trans }}:</h6>
+                    {{ ("content_type.sort_field." ~ content_type.defaultSortField)|trans(domain="ezrepoforms_content_type") }} / {{ ("content_type.sort_order." ~ content_type.defaultSortOrder)|trans(domain="ezrepoforms_content_type") }}
+                </div>
+            </div>
+
+            <div class="pure-u-1">
+            {% if can_edit %}
+                <a href="{{ path('admin_contenttypeUpdate', {'contentTypeId': content_type.id}) }}" class="pure-button ez-button" data-icon="&#xe606;">{{ 'content_type.edit'|trans }}</a>
+            {% else %}
+                <span class="pure-button ez-button pure-button-disabled" data-icon="&#xe606;">{{ 'content_type.edit'|trans }}</span>
+            {% endif %}
+                {{ form_start(delete_form, {"action": path("admin_contenttypeDelete", {"contentTypeId": content_type.id})}) }}
+                    {{ form_widget(delete_form.contentTypeId) }}
+                    {{
+                        form_widget(
+                            delete_form.delete,
+                            {
+                                "disabled": not can_delete,
+                                "attr": {"class": "pure-button ez-button ez-remove-section-button ez-font-icon ez-button-delete",
+                                         "title": not can_delete ? 'content_type.is_in_use'|trans}
+                            }
+                        )
+                    }}
+                {{ form_end(delete_form) }}
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block title %}{{ content_type_name }}{% endblock %}
+
+

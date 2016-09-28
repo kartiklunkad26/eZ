@@ -1,0 +1,32 @@
+/**
+ * Copyright (C) eZ Systems AS. All rights reserved.
+ * For full copyright and license information view LICENSE file distributed with this source code.
+ */
+
+.ez-asynchronousview .ez-asynchronousview-loading {
+    color: #888;
+    font-style: italic;
+}
+
+.ez-asynchronousview .ez-asynchronousview-loading:before {
+    display: inline-block;
+    -webkit-animation: spin 0.7s infinite linear;
+            animation: spin 0.7s infinite linear;
+    content: "\E61c";
+    padding: 0 0.2em;
+}
+
+.ez-asynchronousview .ez-asynchronousview-retry:before {
+    content: "\E60f";
+}
+
+.ez-asynchronousview .ez-asynchronousview-error {
+    color: #BF3E33;
+    font-style: italic;
+}
+
+.ez-asynchronousview .ez-asynchronousview-error:before {
+    content: "\E61b";
+    font-style: normal;
+    padding-right: 0.2em;
+}

@@ -1,0 +1,49 @@
+/**
+ * Copyright (C) eZ Systems AS. All rights reserved.
+ * For full copyright and license information view LICENSE file distributed with this source code.
+ */
+
+.ez-locationview-content {
+    background: #fff;
+}
+
+.ez-view-locationviewview .ez-actionbar-container {
+    background: #333;
+    margin-top: -1px; /* to align the action bar with bottom border of navigation hub */
+    transition: all 0.30s ease-in-out;
+}
+
+.ez-view-locationviewview header {
+    background: #f5f4f2;
+}
+
+.ez-view-locationviewview .ez-location-breadcrumbs .ez-breadcrumbs-list {
+    font-size: 90%;
+}
+
+.ez-view-locationviewview .ez-location-breadcrumbs .ez-breadcrumbs-item a {
+    color: #528036;
+}
+
+.ez-view-locationviewview .ez-location-breadcrumbs .ez-breadcrumbs-item a:hover {
+    color: #444;
+    text-decoration: underline;
+}
+
+.ez-view-locationviewview .ez-page-header-contenttype {
+    font-size: 55%;
+    color: #737373;
+    padding-left: 3px; /* to align with the content name */
+}
+
+.ez-view-locationviewview .ez-page-header-name{
+    font-size: 2em;
+}
+
+.ez-view-locationviewview .ez-page-header-name h1{
+    font-size: 1em;
+}
+
+.ez-view-locationviewview .ez-page-header-content-name {
+    font-weight: bold;
+}

@@ -1,0 +1,5 @@
+_assetic:
+    resource: .
+    type: assetic
+_app:
+    resource: /Users/kartiklunkad/Documents/CMS/eZCMS/ezplatform-dist-1.5.0/app/config/routing_dev.yml

@@ -1,0 +1,187 @@
+<div class="ez-versions-box">
+    {{#if loadingError}}
+    <p class="ez-asynchronousview-error ez-font-icon">
+        An error occurred while loading the versions list.
+        <button class="ez-asynchronousview-retry ez-button ez-font-icon pure-button">
+            Retry
+        </button>
+    </p>
+    {{else}}
+        {{#if hasDraft }}
+        {{#if draftVersions }}
+        <div class="ez-versions-list-container">
+            <h2 class="ez-versions-box-title">Draft under edit</h2>
+            <div class="ez-versions-list-table-container">
+            <table class="pure-table pure-table-striped ez-versions-list-table">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Version</th>
+                    <th>Language</th>
+                    <th>Author</th>
+                    <th>Created</th>
+                    <th>Last saved</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each draftVersions}}
+                    <tr>
+                        <td>
+                            <input type="checkbox"
+                                   value="{{ id }}"
+                                   class="ez-version-checkbox ez-draft-version-checkbox"
+                                   data-version-id="{{ id }}">
+                        </td>
+                        <td>
+                            {{versionNo}}
+                        </td>
+                        <td>
+                            {{languageCodes}}
+                        </td>
+                        <td>
+                            {{resources.Creator}}
+                        </td>
+                        <td>
+                            {{creationDate}}
+                        </td>
+                        <td>
+                            {{modificationDate}}
+                        </td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+
+            <div class="ez-versions-list-table-tools">
+                <button class="ez-edit-draft-button ez-button pure-button"
+                        data-version-id="{{id}}"
+                        disabled="disabled"
+                >
+                    Edit selected draft
+                </button>
+                <button class="ez-delete-draft-button ez-button pure-button"
+                        data-version-id="{{id}}"
+                        disabled="disabled"
+                >
+                    Delete selected draft(s)
+                </button>
+            </div>
+
+            </div>
+        </div>
+        {{else}}
+            <p class="ez-font-icon ez-asynchronousview-loading">Loading the draft list</p>
+        {{/if}}
+        {{/if}}
+
+        {{#if hasPublished }}
+        {{#if publishedVersions }}
+        <div class="ez-versions-list-container">
+            <h2 class="ez-versions-box-title">Published version</h2>
+            <div class="ez-versions-list-table-container">
+            <table class="pure-table pure-table-striped ez-versions-list-table">
+                <thead>
+                <tr>
+                    <th>Version</th>
+                    <th>Language</th>
+                    <th>Author</th>
+                    <th>Created</th>
+                    <th>Last saved</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each publishedVersions}}
+                    <tr>
+                        <td>
+                            {{versionNo}}
+                        </td>
+                        <td>
+                            {{languageCodes}}
+                        </td>
+                        <td>
+                            {{resources.Creator}}
+                        </td>
+                        <td>
+                            {{creationDate}}
+                        </td>
+                        <td>
+                            {{modificationDate}}
+                        </td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+            </div>
+        </div>
+        {{else}}
+            <p class="ez-font-icon ez-asynchronousview-loading">Loading the published version list</p>
+        {{/if}}
+        {{/if}}
+
+        {{#if hasArchived }}
+        {{#if archivedVersions }}
+        <div class="ez-versions-list-container">
+            <h2 class="ez-versions-box-title">Archived version</h2>
+            <div class="ez-versions-list-table-container">
+            <table class="pure-table pure-table-striped ez-versions-list-table">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Version</th>
+                    <th>Language</th>
+                    <th>Author</th>
+                    <th>Created</th>
+                    <th>Last saved</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each archivedVersions}}
+                    <tr>
+                        <td>
+                            <input type="checkbox"
+                                   value="{{ id }}"
+                                   class="ez-version-checkbox ez-archived-version-checkbox"
+                                   data-version-id="{{ id }}">
+                        </td>
+                        <td>
+                            {{versionNo}}
+                        </td>
+                        <td>
+                            {{languageCodes}}
+                        </td>
+                        <td>
+                            {{resources.Creator}}
+                        </td>
+                        <td>
+                            {{creationDate}}
+                        </td>
+                        <td>
+                            {{modificationDate}}
+                        </td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+
+            <div class="ez-versions-list-table-tools">
+                <button class="ez-create-draft-from-archived-button ez-button pure-button"
+                        data-version-id="{{id}}"
+                        disabled="disabled"
+                >
+                    New draft based on selected version
+                </button>
+                <button class="ez-delete-archived-button ez-button pure-button"
+                        data-version-id="{{id}}"
+                        disabled="disabled"
+                >
+                    Remove selected archived version(s)
+                </button>
+            </div>
+            </div>
+        </div>
+        {{else}}
+            <p class="ez-font-icon ez-asynchronousview-loading">Loading the archived version list</p>
+        {{/if}}
+        {{/if}}
+    {{/if}}
+</div>

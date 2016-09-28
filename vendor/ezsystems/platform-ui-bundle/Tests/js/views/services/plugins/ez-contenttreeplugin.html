@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<title>eZ Content Tree Plugin tests</title>
+</head>
+<body>
+
+<script type="text/javascript" src="../../../../../Resources/public/vendors/yui3/build/yui/yui.js"></script>
+<script type="text/javascript" src="../../../assets/pluginregister-tests.js"></script>
+<script type="text/javascript" src="./assets/ez-contenttreeplugin-tests.js"></script>
+<script>
+    var filter = (window.location.search.match(/[?&]filter=([^&]+)/) || [])[1] || 'raw',
+        loaderFilter;
+    if (filter == 'coverage'){
+        loaderFilter = {
+            searchExp : "/Resources/public/js/",
+            replaceStr: "/Tests/instrument/Resources/public/js/"
+        };
+    } else {
+        loaderFilter = filter;
+    }
+
+    YUI({
+        coverage: ['ez-contenttreeplugin'],
+        filter: loaderFilter,
+        modules: {
+            "ez-contenttreeplugin": {
+                requires: ['ez-viewservicebaseplugin', 'ez-locationmodel', 'ez-contenttree', 'ez-contentmodel', 'parallel'],
+                fullpath: "../../../../../Resources/public/js/views/services/plugins/ez-contenttreeplugin.js"
+            },
+            "ez-viewservicebaseplugin": {
+                requires: ['plugin', 'base'],
+                fullpath: "../../../../../Resources/public/js/views/services/plugins/ez-viewservicebaseplugin.js"
+            },
+            "ez-contentinfo-attributes": {
+                requires: ['ez-restmodel'],
+                fullpath: "../../../../../Resources/public/js/models/extensions/ez-contentinfo-attributes.js"
+            },
+            "ez-locationmodel": {
+                requires: ['ez-restmodel', 'ez-contentinfomodel'],
+                fullpath: "../../../../../Resources/public/js/models/ez-locationmodel.js"
+            },
+            "ez-contentmodel": {
+                requires: ['ez-restmodel', 'ez-contentinfomodel', 'ez-versionmodel'],
+                fullpath: "../../../../../Resources/public/js/models/ez-contentmodel.js"
+            },
+            "ez-versionmodel": {
+                requires: [
+                    'ez-versioninfomodel'
+                ],
+                fullpath: "../../../../../Resources/public/js/models/ez-versionmodel.js"
+            },
+            "ez-versioninfomodel": {
+                requires: [
+                    'ez-restmodel'
+                ],
+                fullpath: "../../../../../Resources/public/js/models/ez-versioninfomodel.js"
+            },
+            "ez-contentinfomodel": {
+                requires: ['ez-restmodel', 'ez-contentinfo-attributes'],
+                fullpath: "../../../../../Resources/public/js/models/ez-contentinfomodel.js"
+            },
+            "ez-contenttree": {
+                requires: ['tree', 'tree-selectable', 'tree-openable', 'tree-lazy'],
+                fullpath: "../../../../../Resources/public/js/models/structs/ez-contenttree.js"
+            },
+            "ez-restmodel": {
+                requires: ['model'],
+                fullpath: "../../../../../Resources/public/js/models/ez-restmodel.js"
+            },
+        }
+    }).use('ez-contenttreeplugin-tests', function (Y) {
+        Y.Test.Runner.run();
+    });
+</script>
+</body>
+</html>

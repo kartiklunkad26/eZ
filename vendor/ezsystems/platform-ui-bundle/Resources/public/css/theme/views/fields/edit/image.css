@@ -1,0 +1,53 @@
+/**
+ * Copyright (C) eZ Systems AS. All rights reserved.
+ * For full copyright and license information view LICENSE file distributed with this source code.
+ */
+
+.ez-view-imageeditview.is-image-being-updated .ez-image-preview {
+    opacity: 0.1;
+    -webkit-transform: scale(0);
+            transform: scale(0);
+}
+
+.ez-view-imageeditview .ez-image-preview {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: left top;
+            transform-origin: left top;
+    -webkit-transition: all 0.1s ease;
+            transition: all 0.1s ease;
+}
+
+.ez-view-imageeditview.is-image-loading .ez-asynchronousview-loading,
+.ez-view-imageeditview.is-image-loading .ez-asynchronousview-error {
+    font-size: 120%;
+}
+
+.ez-view-imageeditview .ez-image-view-original {
+    font-size: 80%;
+}
+
+.ez-view-imageeditview .ez-image-view-original:after {
+    font-family: 'ez-platformui-icomoon';
+    content: "\E610";
+    padding-left: 0.3em;
+}
+
+.ez-view-imageeditview .ez-image-properties-title {
+    font-size: 120%;
+    border-bottom: 1px solid #ccc;
+}
+
+.ez-view-imageeditview .ez-image-properties-original {
+    list-style-type: square;
+}
+
+.ez-view-imageeditview .ez-field-description {
+    color: #333333;
+    font-size: 80%;
+    opacity: 1;
+    letter-spacing: 0.03em;
+    font-weight: normal;
+    margin-bottom: 1em;
+}

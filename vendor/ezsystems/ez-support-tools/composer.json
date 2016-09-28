@@ -1,0 +1,33 @@
+{
+    "name": "ezsystems/ez-support-tools",
+    "description": "Providing information about the system eZ Platform/Studio is running on",
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "Gunnstein Lye",
+            "email": "gunnstein.lye@ez.no"
+        }
+    ],
+    "require": {
+        "ezsystems/ezpublish-kernel": "^6.2",
+        "ocramius/proxy-manager": "~1.0|~2.0",
+        "symfony/proxy-manager-bridge": "*",
+        "zetacomponents/system-information": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "EzSystems\\EzSupportToolsBundle\\": ""
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.7"
+    }
+}

@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<title>eZ Content Model tests</title>
+</head>
+<body>
+
+<script type="text/javascript" src="../../../Resources/public/vendors/yui3/build/yui/yui.js"></script>
+<script type="text/javascript" src="./assets/model-tests.js"></script>
+<script type="text/javascript" src="./assets/ez-contentmodel-tests.js"></script>
+<script>
+    var filter = (window.location.search.match(/[?&]filter=([^&]+)/) || [])[1] || 'raw',
+        loaderFilter;
+    if (filter == 'coverage'){
+        loaderFilter = {
+            searchExp : "/Resources/public/js/",
+            replaceStr: "/Tests/instrument/Resources/public/js/"
+        };
+    } else {
+        loaderFilter = filter;
+    }
+
+    YUI({
+        coverage: ['ez-contentmodel'],
+        filter: loaderFilter,
+        modules: {
+            "ez-contentmodel": {
+                requires: [
+                    'ez-restmodel', 'ez-versionmodel', 'array-extras', 'ez-contentinfo-attributes', 'parallel'
+                ],
+                fullpath: "../../../Resources/public/js/models/ez-contentmodel.js"
+            },
+            "ez-versionmodel": {
+                requires: [
+                    'ez-versioninfomodel'
+                ],
+                fullpath: "../../../Resources/public/js/models/ez-versionmodel.js"
+            },
+            "ez-versioninfomodel": {
+                requires: [
+                    'ez-restmodel'
+                ],
+                fullpath: "../../../Resources/public/js/models/ez-versioninfomodel.js"
+            },
+            "ez-restmodel": {
+                requires: [
+                    'model'
+                ],
+                fullpath: "../../../Resources/public/js/models/ez-restmodel.js"
+            },
+            "ez-contentinfo-attributes": {
+                requires: ['ez-restmodel'],
+                fullpath: "../../../Resources/public/js/models/extensions/ez-contentinfo-attributes.js"
+            },
+        }
+    }).use('ez-contentmodel-tests', function (Y) {
+        Y.Test.Runner.run();
+    });
+</script>
+</body>
+</html>

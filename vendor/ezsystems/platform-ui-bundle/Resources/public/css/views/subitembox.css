@@ -1,0 +1,33 @@
+/**
+ * Copyright (C) eZ Systems AS. All rights reserved.
+ * For full copyright and license information view LICENSE file distributed with this source code.
+ */
+
+.ez-view-subitemboxview .ez-subitembox-title {
+    margin: 0;
+    padding: 0 1rem 0 1em;
+    line-height: 2.5em;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ez-view-subitemboxview .ez-subitembox-viewlist {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 5px;
+    height: 2.1rem;
+}
+
+.ez-view-subitemboxview .ez-subitembox-viewlist-item {
+    height: 100%;
+}
+
+.ez-view-subitemboxview .ez-switch-subitemview {
+}
+
+.ez-view-subitemboxview .ez-switch-subitemview:before {
+    padding: 0 0.4em;
+}

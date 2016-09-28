@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="{{ app.request.locale }}" class="ez-platformui-app-page">
+{% trans_default_domain "general" %}
+<head>
+    <title>eZ Platform UI</title>
+    <meta name="viewport" content="width=device-width"/>
+    <meta charset="utf-8"/>
+{% stylesheets '$css.files;ez_platformui$' filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}"/>
+{% endstylesheets %}
+    <style>
+        .ez-loading-message {
+            display: none;
+        }
+
+        .yui3-js-enabled .ez-loading-message {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 40px;
+            margin-top: 50px;
+            text-align: center;
+            display: block;
+            color: #888;
+        }
+        .ez-platformui-app-ready .ez-loading-message {
+            display: none;
+        }
+    </style>
+</head>
+<body class="ez-platformui-app-body yui3-skin-platformui">
+    <div class="ez-loading-message"><em>{{ 'loading.application'|trans }}</em></div>
+    <div class="ez-platformui-app pure is-menu-hidden is-navigation-hidden is-universaldiscovery-hidden is-confirmbox-hidden is-languageselectionbox-hidden">
+        <div class="ez-universaldiscovery-container"></div>
+        <div class="ez-confirmbox-container"></div>
+        <div class="ez-languageselectionbox-container"></div>
+        <div class="ez-navigation-container"></div>
+        <div class="ez-mainviews pure-g">
+            <div class="ez-menu-container pure-u"></div>
+            <div class="ez-view-container pure-u"></div>
+        </div>
+        <div class="ez-notification-container"></div>
+        <div class="ez-errorview-container is-hidden pure-u"></div>
+    </div>
+
+    <noscript>
+        <p>{{ 'javascript.disabled.required'|trans }}</p>
+        <p><strong>{{ 'javascript.enable'|trans }}</strong></p>
+    </noscript>
+
+{% javascripts '$javascript.files;ez_platformui$' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+    <script src="{{ asset( "bundles/ezplatformuiassets/vendors/yui3/build/yui/yui-min.js" ) }}"></script>
+    <script>
+        {{ ez_platformui_yui_config( "YUI.GlobalConfig" ) }}
+
+        var CKEDITOR_BASEPATH = ALLOYEDITOR_BASEPATH = "{{ asset("bundles/ezplatformuiassets/vendors/alloy-editor/dist/alloy-editor/") }}";
+
+        YUI().use('ez-platformuiapp', function (Y) {
+            var app = new Y.eZ.PlatformUIApp({
+                    container: '.ez-platformui-app',
+                    viewContainer: '.ez-view-container',
+                    config: {{ parameters|json_encode|raw }},
+                    plugins: Y.eZ.PluginRegistry.getPlugins(Y.eZ.PlatformUIApp.NAME),
+                });
+            app.on('ready', function () {
+                Y.one(Y.config.doc.documentElement).addClass('ez-platformui-app-ready');
+            });
+            app.render().dispatch();
+
+            if ( !Y.config.doc.location.hash ) {
+                Y.config.doc.location.hash = '#/login';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<div class="ez-locations-box">
+    <h2 class="ez-locations-box-title">Content locations</h2>
+    <div class="ez-locations-list-container">
+        {{#if loadingError}}
+            <p class="ez-asynchronousview-error ez-font-icon">
+                An error occurred while loading the locations list.
+                <button class="ez-asynchronousview-retry ez-button ez-font-icon pure-button">
+                    Retry
+                </button>
+            </p>
+        {{else}}
+            {{#if locations }}
+                <table class="pure-table pure-table-striped ez-locations-list-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Path</th>
+                            <th>Sub items</th>
+                            <th colspan="2">Visibility</th>
+                            <th>Main</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each locations}}
+                            <tr>
+                                <td>
+                                    <input type="checkbox" value="{{ id }}" class="ez-location-checkbox"
+                                        data-location-id="{{ id }}"{{#if isMainLocation}} disabled{{/if}}
+                                        data-main-location="{{#if isMainLocation}}1{{else}}0{{/if}}">
+                                </td>
+                                <td>
+                                    <ul class="ez-breadcrumbs-list">
+                                        {{#each this.path}}
+                                        <li class="ez-breadcrumbs-item">
+                                            <a href="{{ path "viewLocation" id=id languageCode=contentInfo.mainLanguageCode }}">{{ contentInfo.name }}</a>
+                                        </li>
+                                        {{/each}}
+                                        <li class="ez-breadcrumbs-item">
+                                            <a href="{{ path "viewLocation" id=id languageCode=contentInfo.mainLanguageCode }}">{{ contentInfo.name }}</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td class="ez-table-data-childcount">{{ childCount }}</td>
+                                <td class="ez-table-data-visibility">
+                                    {{#if hidden}}Hidden{{else}}{{#if invisible}}Hidden by superior{{else}}Visible{{/if}}{{/if}}
+                                </td>
+                                <td class="ez-table-data-visibility">
+                                    <button
+                                        data-location-id="{{id}}"
+                                        class="ez-locations-hidden-button
+                                        {{#if hidden}}ez-locations-hidden-button-reveal{{else}}{{#if invisible}}ez-locations-hidden-button-hide{{else}}ez-locations-hidden-button-hide{{/if}}{{/if}}
+                                        pure-button ez-font-icon ez-button">
+
+                                        {{#if hidden}}Reveal{{else}}{{#if invisible}}Hide{{else}}Hide{{/if}}{{/if}}
+                                    </button>
+                                </td>
+                                <td class="ez-table-data-main-location">
+                                    <input type="radio" value="1" class="ez-main-location-radio"
+                                           data-location-id="{{ id }}"{{#if isMainLocation}} checked="checked"{{/if}}>
+                                </td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            {{else}}
+                <p class="ez-font-icon ez-asynchronousview-loading">Loading the locations list</p>
+            {{/if}}
+        {{/if}}
+
+        <div class="ez-locations-tools">
+            <button class="ez-remove-locations-button ez-button pure-button">Remove selected</button>
+            or <button class="ez-add-location-button ez-button pure-button">Add location</button>
+        </div>
+    </div>
+</div>
+
+<div class="ez-locations-box">
+    <h2 class="ez-locations-box-title">Location Content Swap</h2>
+    <p class="ez-subitem-swap-locations">
+        Swap the content item at this location with another
+        <button
+            class="ez-locations-swap-button pure-button ez-button">
+            Select Content Item
+        </button>
+    </p>
+</div>

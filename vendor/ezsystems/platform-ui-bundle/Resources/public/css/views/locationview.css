@@ -1,0 +1,51 @@
+/**
+ * Copyright (C) eZ Systems AS. All rights reserved.
+ * For full copyright and license information view LICENSE file distributed with this source code.
+ */
+
+.ez-view-locationviewview > .pure-g {
+    padding-right: 230px;
+    transition: all 0.30s ease-in-out;
+}
+
+.ez-view-locationviewview.is-actionbar-minimized > .pure-g {
+    padding-right: 4em;
+}
+
+.ez-view-locationviewview .ez-actionbar-container {
+    width: 230px;
+    margin-right: -230px;
+}
+
+.ez-view-locationviewview.is-actionbar-minimized .ez-actionbar-container {
+    width: 4em;
+    margin-right: -4em;
+}
+
+.ez-view-locationviewview .ez-locationview-content {
+    width: 100%;
+}
+
+.ez-view-locationviewview .ez-subitem-container {
+    padding: 0 2em 2em 2em;
+}
+
+.ez-view-locationviewview .ez-location-breadcrumbs .ez-breadcrumbs-item:after {
+    padding: 0 0.3em 0 0.5em;
+}
+
+.ez-view-locationviewview .ez-page-header-content-name {
+    margin-bottom: 0;
+    display: block;
+    margin-left: 2.3rem;
+}
+
+.ez-view-locationviewview .ez-page-header-contenttype {
+    display: block;
+    margin: -0.33em 0 1.33em 2.3rem;
+}
+
+ .ez-view-locationviewview .ez-page-header-name:before {
+     float: left;
+     padding-right: 0;
+ }

@@ -1,0 +1,95 @@
+/**
+ * Copyright (C) eZ Systems AS. All rights reserved.
+ * For full copyright and license information view LICENSE file distributed with this source code.
+ */
+
+.ez-view-contenteditview {
+    overflow: hidden;
+    height: 100%;
+}
+
+.ez-view-contenteditview > .pure-g {
+    height: 100%;
+    padding-right: 230px;
+}
+
+.ez-view-contenteditview > .pure-g {
+    height: 100%;
+    padding-right: 230px;
+}
+
+.ez-view-contenteditview .ez-main-content {
+    width: 100%;
+}
+
+.ez-view-contenteditview .ez-page-header {
+    padding: 2em 2em 0 2em;
+}
+
+.ez-view-contenteditview .ez-view-close {
+    display: block;
+    float: right;
+}
+
+.ez-view-contenteditview .ez-page-header-name {
+    margin: 0;
+}
+
+.ez-view-contenteditview .ez-technical-infos {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ez-view-contenteditview .ez-description {
+    padding-top: 0.3em;
+    margin: 0.3em 0 0 0;
+}
+
+.ez-view-contenteditview .ez-infos {
+    visibility: hidden;
+}
+
+.ez-view-contenteditview.is-showing-infos .ez-infos,
+.ez-view-contenteditview.is-using-touch-device .ez-infos {
+    visibility: visible;
+}
+
+.ez-view-contenteditview .ez-technical-infos li {
+    display: inline-block;
+}
+
+.ez-view-contenteditview .ez-technical-infos li:after {
+    content: " /";
+}
+
+.ez-view-contenteditview .ez-technical-infos li:last-child:after {
+    content: "";
+}
+
+.ez-view-contenteditview .ez-editactionbar-container {
+    width: 230px;
+    margin-right: -230px;
+}
+
+.is-navigation-hidden .ez-view-contenteditview .ez-editactionbar-container {
+    position: fixed;
+    z-index: 1025;
+    right: 230px;
+}
+
+.ez-view-contenteditview .ez-content-language-container {
+    display: block;
+    position:relative;
+}
+
+.ez-view-contenteditview .ez-content-language-indicator {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+}
+
+.ez-view-contenteditview .ez-change-content-language-link {
+    margin-left: 0.5em;
+}

@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<title>eZ Email Address Edit view tests</title>
+</head>
+<body>
+
+<div class="container"></div>
+
+<script type="text/x-handlebars-template" id="emailaddresseditview-ez-template">
+    <div class="ez-emailaddress-input-ui">
+        <input type="email"
+            {{#if isRequired}} required{{/if}}
+        >
+    </div>
+    <p class="ez-editfield-error-message"></p>
+</script>
+
+<script type="text/javascript" src="../../../../Resources/public/vendors/yui3/build/yui/yui.js"></script>
+<script type="text/javascript" src="./assets/editviewregister-tests.js"></script>
+<script type="text/javascript" src="./assets/getfield-tests.js"></script>
+<script type="text/javascript" src="./assets/ez-emailaddress-editview-tests.js"></script>
+
+<script>
+    var filter = (window.location.search.match(/[?&]filter=([^&]+)/) || [])[1] || 'raw',
+        loaderFilter;
+
+    if (filter == 'coverage'){
+        loaderFilter = {
+            searchExp : "/Resources/public/js/",
+            replaceStr: "/Tests/instrument/Resources/public/js/"
+        };
+    } else {
+        loaderFilter = filter;
+    }
+
+    YUI({
+        coverage: ['ez-emailaddress-editview'],
+        filter: loaderFilter,
+        modules: {
+            "ez-emailaddress-editview": {
+                requires: ['ez-fieldeditview'],
+                fullpath: "../../../../Resources/public/js/views/fields/ez-emailaddress-editview.js"
+            },
+            "ez-fieldeditview": {
+                requires: ['ez-templatebasedview'],
+                fullpath: "../../../../Resources/public/js/views/ez-fieldeditview.js"
+            },
+            "ez-templatebasedview": {
+                requires: ['ez-view', 'handlebars', 'template'],
+                fullpath: "../../../../Resources/public/js/views/ez-templatebasedview.js"
+            },
+            "ez-view": {
+                requires: ['view', 'base-pluginhost', 'ez-pluginregistry'],
+                fullpath: "../../../../Resources/public/js/views/ez-view.js"
+            },
+            "ez-pluginregistry": {
+                requires: ['array-extras'],
+                fullpath: "../../../../Resources/public/js/services/ez-pluginregistry.js"
+            },
+        }
+    }).use('ez-emailaddress-editview-tests', function (Y) {
+        Y.Test.Runner.run();
+    });
+</script>
+</body>
+</html>

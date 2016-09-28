@@ -1,0 +1,23 @@
+/**
+ * Copyright (C) eZ Systems AS. All rights reserved.
+ * For full copyright and license information view LICENSE file distributed with this source code.
+ */
+
+.ez-tabs .ez-tabs-list {
+    padding: 0 0 0 2em;
+    margin: 0;
+}
+
+.ez-tabs .ez-tabs-label {
+    display: inline-block;
+    padding: 0;
+}
+
+.ez-tabs .ez-tabs-label a {
+    display: block;
+    padding: 0.5em 1.2em;
+}
+
+.ez-tabs .ez-tabs-panel {
+    padding: 0 2em 2em 2em;
+}

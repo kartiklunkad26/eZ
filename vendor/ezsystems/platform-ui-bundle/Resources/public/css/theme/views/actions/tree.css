@@ -1,0 +1,28 @@
+/**
+ * Copyright (C) eZ Systems AS. All rights reserved.
+ * For full copyright and license information view LICENSE file distributed with this source code.
+ */
+
+.ez-view-treeactionview {
+    background: #333;
+    transition: padding 0.2s ease;
+}
+
+.ez-view-treeactionview .ez-expandable-area {
+    background: #333;
+    font-size: 90%;
+    transition: all 0.2s ease;
+}
+
+.ez-view-treeactionview .ez-tree-navigate,
+.ez-view-treeactionview .ez-tree-node-toggle {
+    color: #ccc;
+}
+
+.ez-view-treeactionview .is-tree-node-selected > .ez-tree-navigate {
+    color: #67A53D;
+}
+
+.ez-view-treeactionview .is-tree-node-selected > .ez-tree-navigate:before {
+    color: #ccc;
+}

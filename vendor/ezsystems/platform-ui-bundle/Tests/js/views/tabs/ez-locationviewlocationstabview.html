@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>eZ Location View Locations Tab view tests</title>
+</head>
+<body>
+
+<div class="container"></div>
+
+<script type="text/x-handlebars-template" id="locationviewlocationstabview-ez-template">
+    <button class="ez-asynchronousview-retry">Retry</button>
+
+    <button class="ez-add-location-button">Add location</button>
+
+    <button class="ez-remove-locations-button">Remove selected</button>
+    <div>
+        <input type="checkbox" value="/another/location/id" class="ez-location-checkbox"
+            data-location-id="/another/location/id" data-main-location="0">
+        <input type="radio" value="1" class="ez-main-location-radio"
+            id="ez-not-main-location-radio" data-location-id="/another/location/id">
+    </div>
+    <div>
+        <input type="checkbox" value="/main/location/id" class="ez-location-checkbox"
+            data-location-id="/main/location/id" disabled data-main-location="1">
+        <input type="radio" value="1" class="ez-main-location-radio"
+            id="ez-main-location-radio" data-location-id="/main/location/id" checked="checked">
+    </div>
+    <button class="ez-locations-hidden-button" data-location-id="42">Hide/reveal</button>
+    <button class="ez-locations-swap-button">Swap</button>
+
+</script>
+
+<script type="text/javascript" src="../../../../Resources/public/vendors/yui3/build/yui/yui.js"></script>
+<script type="text/javascript" src="./assets/ez-locationviewlocationstabview-tests.js"></script>
+<script type="text/javascript" src="../../views/services/assets/fake-models.js"></script>
+<script>
+    var filter = (window.location.search.match(/[?&]filter=([^&]+)/) || [])[1] || 'raw',
+        loaderFilter;
+
+    if (filter == 'coverage'){
+        loaderFilter = {
+            searchExp : "/Resources/public/js/",
+            replaceStr: "/Tests/instrument/Resources/public/js/"
+        };
+    } else {
+        loaderFilter = filter;
+    }
+
+    YUI({
+        coverage: ['ez-locationviewlocationstabview'],
+        filter: loaderFilter,
+        modules: {
+            "ez-locationviewlocationstabview": {
+                requires: ['ez-locationviewtabview', 'ez-asynchronousview', 'array-extras', 'fake-models'],
+                fullpath: "../../../../Resources/public/js/views/tabs/ez-locationviewlocationstabview.js"
+            },
+            "ez-asynchronousview": {
+                requires: ['view', 'event-tap'],
+                fullpath: "../../../../Resources/public/js/extensions/ez-asynchronousview.js"
+            },
+            "ez-locationviewtabview": {
+                requires: ['ez-templatebasedview'],
+                fullpath: "../../../../Resources/public/js/views/ez-locationviewtabview.js"
+            },
+            "ez-templatebasedview": {
+                requires: ['ez-view', 'handlebars', 'template'],
+                fullpath: "../../../../Resources/public/js/views/ez-templatebasedview.js"
+            },
+            "ez-view": {
+                requires: ['view', 'base-pluginhost', 'ez-pluginregistry'],
+                fullpath: "../../../../Resources/public/js/views/ez-view.js"
+            },
+            "ez-pluginregistry": {
+                requires: ['array-extras'],
+                fullpath: "../../../../Resources/public/js/services/ez-pluginregistry.js"
+            },
+        }
+    }).use('ez-locationviewlocationstabview-tests', function (Y) {
+        Y.Test.Runner.run();
+    });
+</script>
+</body>
+</html>

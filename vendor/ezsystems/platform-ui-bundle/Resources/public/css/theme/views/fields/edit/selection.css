@@ -1,0 +1,90 @@
+/**
+ * Copyright (C) eZ Systems AS. All rights reserved.
+ * For full copyright and license information view LICENSE file distributed with this source code.
+ */
+
+.ez-view-selectioneditview .ez-selection-values {
+    list-style-type: none;
+    border: 1px solid #ccc;
+    border-bottom: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+.ez-view-selectioneditview.is-top-list .ez-selection-values {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ccc;
+}
+
+.ez-view-selectioneditview.is-error .ez-selection-values {
+    border: 1px solid #BF3E33;
+    background: #FEECEA;
+}
+
+.ez-view-selectioneditview .ez-selection-values:after {
+    background: #eee;
+    border: 1px solid #ccc;
+    content: "\E602";
+    font-size: 120%;
+    color: #000;
+    font-family: "ez-platformui-icomoon";
+}
+
+.ez-view-selectioneditview.is-error .ez-selection-values:after {
+    border: 1px solid #BF3E33;
+    background: #BF3E33;
+    color: #FEECEA;
+}
+
+.ez-view-selectioneditview .ez-selection-value {
+    background: #eee;
+    border-radius: 5px;
+}
+
+.ez-view-selectioneditview .ez-selection-value:after {
+    content: "\E600";
+    color: #666;
+    font-family: "ez-platformui-icomoon";
+    font-size: 80%;
+    padding-left: 0.5em;
+}
+
+.ez-view-selectioneditview.is-top-list .ez-selection-list {
+    border: 1px solid #ccc;
+    border-bottom: 0;
+    border-radius: 0;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    box-shadow: 3px 0 3px 0px rgba(120, 120, 120, 0.75);
+
+    -webkit-transform-origin: center bottom;
+            transform-origin: center bottom;
+}
+
+.ez-view-selectioneditview.is-list-hidden .ez-selection-list {
+    display: block;
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+}
+
+.ez-view-selectioneditview .ez-field-description {
+    opacity: 0;
+    visibility: visible;
+    transition: all 0.3s ease;
+}
+
+.ez-view-selectioneditview.is-list-hidden.is-showing-description .ez-field-description {
+    opacity: 1;
+}
+
+.ez-view-selectioneditview .ez-field-description {
+    font-weight: lighter;
+    font-size: 80%
+}
+
+.ez-view-selectioneditview.is-top-list.is-list-hidden .ez-fielddescription-tooltip.is-visible {
+    opacity: 1;
+}
+
+.ez-view-selectioneditview.is-top-list .ez-fielddescription-tooltip.is-visible {
+    opacity: 0;
+}

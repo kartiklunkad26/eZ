@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<title>eZ Trash view tests</title>
+</head>
+<body>
+
+<div class="container"></div>
+
+<script type="text/x-handlebars-template" id="trashview-ez-template">
+    <div class="ez-trashview-content">
+        {{#each trashItems}}
+        <input type="checkbox" class="ez-trashitem-box" value="{{item.id}}"/>
+        {{/each}}
+    </div>
+    <div class="ez-trashbar-container"></div>
+</script>
+
+<script type="text/javascript" src="../../../Resources/public/vendors/yui3/build/yui/yui.js"></script>
+<script type="text/javascript" src="./assets/ez-trashview-tests.js"></script>
+<script>
+    var filter = (window.location.search.match(/[?&]filter=([^&]+)/) || [])[1] || 'raw',
+        loaderFilter;
+    if (filter == 'coverage'){
+        loaderFilter = {
+            searchExp : "/Resources/public/js/",
+            replaceStr: "/Tests/instrument/Resources/public/js/"
+        };
+    } else {
+        loaderFilter = filter;
+    }
+
+    YUI({
+        coverage: ['ez-trashview'],
+        filter: loaderFilter,
+        modules: {
+            "ez-trashview": {
+                requires: [
+                    'ez-templatebasedview',
+                    'array-extras',
+                    'ez-trashbarview',
+                    'node-style',
+                    'ez-selection-table',
+                ],
+                fullpath: "../../../Resources/public/js/views/ez-trashview.js"
+            },
+            "ez-trashbarview": {
+                requires: ['ez-barview', 'ez-buttonactionview'],
+                fullpath: "../../../Resources/public/js/views/ez-trashbarview.js"
+            },
+            "ez-barview": {
+                requires: ['ez-templatebasedview', 'event-tap', 'event-resize'],
+                fullpath: "../../../Resources/public/js/views/ez-barview.js"
+            },
+            "ez-buttonactionview": {
+                requires: ['ez-templatebasedview'],
+                fullpath: "../../../Resources/public/js/views/actions/ez-buttonactionview.js"
+            },
+           "ez-templatebasedview": {
+                requires: ['ez-view', 'handlebars', 'template'],
+                fullpath: "../../../Resources/public/js/views/ez-templatebasedview.js"
+            },
+            "ez-view": {
+                requires: ['view', 'base-pluginhost', 'ez-pluginregistry'],
+                fullpath: "../../../Resources/public/js/views/ez-view.js"
+            },
+            "ez-pluginregistry": {
+                requires: ['array-extras'],
+                fullpath: "../../../Resources/public/js/services/ez-pluginregistry.js"
+            },
+            "ez-selection-table": {
+                requires: ['node'],
+                fullpath: "../../../Resources/public/js/extensions/ez-selection-table.js"
+            },
+        }
+    }).use('ez-trashview-tests', function (Y) {
+        Y.Test.Runner.run();
+    });
+</script>
+</body>
+</html>

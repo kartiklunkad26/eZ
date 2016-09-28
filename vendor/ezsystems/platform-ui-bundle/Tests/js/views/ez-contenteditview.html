@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<title>eZ Content Edit view tests</title>
+</head>
+<body>
+
+<div class="container"></div>
+
+<script type="text/x-handlebars-template" id="contenteditview-ez-template">
+    <div class="ez-main-content" tabindex="0">
+        <header class="ez-page-header">
+            <a href="#" class="ez-view-close">Close</a>
+            <h1 class="ez-content-name">Content title</h1>
+            <div class="ez-infos">
+                <ul class="ez-technical-infos"{{#unless isTouch}} style="opacity: 0;"{{/unless}}>
+                    <li>Article</li>
+                </ul>
+            </div>
+            <div class="ez-content-language-container">
+                <div class="ez-content-language-indicator">
+                    <span class="ez-content-current-language">{{ languageCode }}</span>
+                    <a href="#" class="ez-change-content-language-link">(change)</a>
+                </div>
+            </div>
+        </header>
+        <div class="ez-contenteditformview-container"></div>
+    </div>
+    <div class="ez-editactionbar-container"></div>
+</script>
+
+
+<script type="text/javascript" src="../../../Resources/public/vendors/yui3/build/yui/yui.js"></script>
+<script type="text/javascript" src="./assets/ez-contenteditview-tests.js"></script>
+<script>
+    var filter = (window.location.search.match(/[?&]filter=([^&]+)/) || [])[1] || 'raw',
+        loaderFilter;
+    if (filter == 'coverage'){
+        loaderFilter = {
+            searchExp : "/Resources/public/js/",
+            replaceStr: "/Tests/instrument/Resources/public/js/"
+        };
+    } else {
+        loaderFilter = filter;
+    }
+
+    YUI({
+        coverage: ['ez-contenteditview'],
+        filter: loaderFilter,
+        modules: {
+            "ez-contenteditview": {
+                requires: [ 'ez-templatebasedview', 'transition', 'event-tap'],
+                fullpath: "../../../Resources/public/js/views/ez-contenteditview.js"
+            },
+            "ez-templatebasedview": {
+                requires: ['ez-view', 'handlebars', 'template'],
+                fullpath: "../../../Resources/public/js/views/ez-templatebasedview.js"
+            },
+            "ez-accordion-element": {
+                requires: ['transition'],
+                fullpath: "../../../Resources/public/js/extensions/ez-accordion-element.js"
+            },
+            "ez-view": {
+                requires: ['view', 'base-pluginhost', 'ez-pluginregistry'],
+                fullpath: "../../../Resources/public/js/views/ez-view.js"
+            },
+            "ez-pluginregistry": {
+                requires: ['array-extras'],
+                fullpath: "../../../Resources/public/js/services/ez-pluginregistry.js"
+            },
+        }
+    }).use('ez-contenteditview-tests', function (Y) {
+        Y.Test.Runner.run();
+    });
+</script>
+</body>
+</html>

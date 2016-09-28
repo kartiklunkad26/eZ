@@ -1,0 +1,72 @@
+/**
+ * Copyright (C) eZ Systems AS. All rights reserved.
+ * For full copyright and license information view LICENSE file distributed with this source code.
+ */
+
+.ez-view-subitemboxview {
+    border: 1px solid #ccc;
+    background: #F5F4F2;
+}
+
+.ez-view-subitemboxview .ez-subitembox-title {
+    background: #fff;
+    font-size: 1.1em;
+    font-weight: bold;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.12);
+}
+
+.ez-view-subitemboxview.is-subitembox-collapsed .ez-collapse-toggle:after {
+    content: "\E604";
+}
+
+.ez-view-subitemboxview .ez-subitembox-viewlist {
+    list-style-type: none;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+
+.ez-view-subitemboxview .ez-subitembox-viewlist-item {
+    -webkit-transition: all ease 0.3s;
+            transition: all ease 0.3s;
+    border-right: 1px solid #aaa;
+}
+
+
+.ez-view-subitemboxview .ez-subitembox-viewlist-item:last-of-type {
+    border-right: none;
+}
+
+.ez-view-subitemboxview .ez-subitembox-viewlist .is-view-selected {
+    background: #3FB499;
+}
+
+.ez-view-subitemboxview .ez-switch-subitemview {
+    color: #999;
+    font-size: 140%;
+}
+
+.ez-view-subitemboxview .ez-switch-subitemview:hover {
+    color: #3FB499;
+}
+
+.ez-view-subitemboxview .is-view-selected .ez-switch-subitemview,
+.ez-view-subitemboxview .is-view-selected .ez-switch-subitemview:hover {
+    color: #fff;
+    cursor: default;
+}
+
+.ez-view-subitemboxview .ez-switch-subitemview:before {
+    content: attr(title);
+    display: inline-block;
+    height: 2.1rem;
+    line-height: 2.1rem;
+    text-align: center;
+}
+
+.ez-view-subitemboxview .ez-switch-subitemview[data-view-identifier="listmore"]:before {
+    content: "\E904";
+}
+
+.ez-view-subitemboxview .ez-switch-subitemview[data-view-identifier="grid"]:before {
+    content: "\E905";
+}

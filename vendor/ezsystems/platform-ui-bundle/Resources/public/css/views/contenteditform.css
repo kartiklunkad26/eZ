@@ -1,0 +1,27 @@
+/**
+ * Copyright (C) eZ Systems AS. All rights reserved.
+ * For full copyright and license information view LICENSE file distributed with this source code.
+ */
+
+.ez-view-contenteditformview .ez-form-content {
+    padding: 1em 2em 2em 2em;
+}
+
+.ez-view-contenteditformview .ez-fieldgroup {
+    margin-bottom: 1.5em;
+    padding: 0;
+}
+
+.ez-view-contenteditformview .fieldgroup-name {
+    line-height: 1.2em;
+    padding: 0 0.2em 0 0.4em;
+    margin: 0 1em 0 1em;;
+    display: inline-block;
+    cursor: pointer;
+    position:relative;
+    top: 0.6em;
+}
+
+.ez-view-contenteditformview .fieldgroup-fields {
+    margin-top: -0.3em;
+}

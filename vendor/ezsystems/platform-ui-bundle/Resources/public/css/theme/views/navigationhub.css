@@ -1,0 +1,172 @@
+/**
+ * Copyright (C) eZ Systems AS. All rights reserved.
+ * For full copyright and license information view LICENSE file distributed with this source code.
+ */
+
+.ez-view-navigationhubview {
+    background: #fff;
+    border-top: 4px solid #000;
+}
+
+.ez-view-navigationhubview .ez-zones-navigation {
+    margin-bottom: -1px; /* for the highlight effect on the active zone */
+}
+
+.ez-view-navigationhubview .ez-zone {
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.ez-view-navigationhubview .is-zone-active {
+    background: #fff;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+.ez-view-navigationhubview .ez-zone-no-navigation.is-zone-active {
+    border-bottom: 3px solid #528036;
+}
+
+.ez-view-navigationhubview .ez-navigation {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #bbb;
+
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.30);
+
+    background: #f5f5f5;
+    background-image: linear-gradient(to top, #F5F5F5 0%, #FFFFFF 100%);
+    font-size: 90%;
+}
+
+.ez-view-navigationhubview.is-navigation-fixed .ez-navigation {
+    border-top: 4px solid #000;
+}
+
+.ez-view-navigationhubview .ez-zone:hover {
+    cursor: pointer;
+}
+
+.ez-view-navigationhubview .ez-zone:before {
+    background: #528036;
+    color: #fff;
+    border-radius: 3px;
+    padding: 0.25em;
+    font-family: 'ez-platformui-icomoon';
+    font-size: 135%;
+    -webkit-font-smoothing: antialiased;
+}
+
+.ez-view-navigationhubview .ez-admin-zone:before {
+    background: transparent;
+    color: #444;
+    font-size: 1rem;
+}
+
+@media (max-width: 58em) {
+    .ez-view-navigationhubview .ez-zone:before {
+        font-size: 120%;
+        width: 1.4em;
+        height: 1.4em;
+        line-height: 1.4em;
+    }
+}
+
+.ez-view-navigationhubview .ez-platform-zone:before {
+    content: "\E62F";
+}
+
+.ez-view-navigationhubview .ez-studioplus-zone:before {
+    content: "\E631";
+}
+
+.ez-view-navigationhubview .ez-studio-zone:before {
+    content: "\E630";
+}
+
+.ez-view-navigationhubview .ez-admin-zone:before {
+    content: "\E613";
+}
+
+.ez-view-navigationhubview .ez-navigation .ez-navigation-item {
+    font-weight: bold;
+    color: #333;
+}
+
+.ez-view-navigationhubview .ez-zone-name {
+    color: #333;
+    font-size: 110%;
+}
+
+.ez-view-navigationhubview .ez-admin-zone .ez-zone-name {
+    font-size: 80%;
+}
+
+@media (max-width:58em) {
+    .ez-view-navigationhubview .ez-zone-name {
+        font-size: 100%;
+    }
+}
+
+.ez-view-navigationhubview .ez-navigation .ez-logo {
+    opacity: 0;
+    visibility: visible;
+    transition: all 0.4s ease;
+}
+
+.ez-view-navigationhubview.is-navigation-fixed .ez-navigation .ez-logo {
+    opacity: 1;
+    visibility: visible;
+}
+
+.ez-view-navigationhubview .ez-navigation .ez-navigation-item {
+    vertical-align: middle;
+}
+
+.ez-view-navigationhubview .ez-sub-menu-link > .ez-navigation-item:after {
+    font-family: 'ez-platformui-icomoon';
+    content: "\E602";
+    color: #888;
+    font-size: 90%;
+}
+
+.ez-view-navigationhubview .ez-sub-menu-link:hover {
+    background: #fff;
+}
+
+.ez-view-navigationhubview .ez-sub-menu {
+    display: block;
+    background: #fff;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+    -webkit-transform-origin: 50% 0;
+            transform-origin: 50% 0;
+    -webkit-transition: -webkit-transform 0.1s ease;
+            transition: transform 0.1s ease;
+}
+
+.ez-view-navigationhubview .is-sub-menu-open .ez-sub-menu {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+}
+
+.ez-view-navigationhubview .ez-sub-menu li:hover {
+    background: #f0f0f0;
+}
+
+.ez-view-navigationhubview li {
+    border-bottom: 3px solid transparent;
+}
+
+.ez-view-navigationhubview .ez-navigation-active {
+    border-bottom: 3px solid #528036;
+}
+
+.ez-view-navigationhubview .ez-navigation .ez-navigation-item:hover {
+    color: #528036;
+}

@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+<title>eZ Universal Discovery view tests</title>
+</head>
+<body>
+
+<div class="selected-container">
+    <div class="animation"></div>
+</div>
+<div class="container"></div>
+
+<script type="text/x-handlebars-template" id="universaldiscoveryview-ez-template">
+<h1 class="ez-universaldiscovery-title">{{ title }}</h1>
+<div class="ez-tabs">
+    {{#each methods}}
+        <p class="ez-tabs-label"><a href="#{{ identifier }}">{{ title }}</a></p>
+    {{/each}}
+    {{#each methods}}
+        <div class="ez-tabs-panel" id="{{ identifier }}"></div>
+    {{/each}}
+</div>
+
+<a href="#" class="ez-universaldiscovery-cancel">Cancel</a>
+
+<div class="ez-universaldiscovery-confirmed-list-container"></div>
+<button class="ez-universaldiscovery-confirm" disabled="disabled">Confirm</button>
+</script>
+
+
+<script type="text/x-handlebars-template" id="universaldiscoverymethodbaseview-ez-template">
+method base view
+</script>
+
+<script type="text/javascript" src="../../../Resources/public/vendors/yui3/build/yui/yui.js"></script>
+<script type="text/javascript" src="./assets/ez-universaldiscoveryview-tests.js"></script>
+<script>
+    var filter = (window.location.search.match(/[?&]filter=([^&]+)/) || [])[1] || 'raw',
+        loaderFilter;
+
+    if (filter == 'coverage'){
+        loaderFilter = {
+            searchExp : "/Resources/public/js/",
+            replaceStr: "/Tests/instrument/Resources/public/js/"
+        };
+    } else {
+        loaderFilter = filter;
+    }
+
+    YUI({
+        coverage: ['ez-universaldiscoveryview'],
+        filter: loaderFilter,
+        modules: {
+            "ez-universaldiscoveryview": {
+                requires: ['ez-templatebasedview', 'ez-universaldiscoverymethodbaseview', 'ez-tabs', 'array-extras', 'event-tap', 'node-screen'],
+                fullpath: "../../../Resources/public/js/views/ez-universaldiscoveryview.js"
+            },
+            "ez-universaldiscoverymethodbaseview": {
+                requires: ['ez-templatebasedview'],
+                fullpath: "../../../Resources/public/js/views/universaldiscovery/ez-universaldiscoverymethodbaseview.js"
+            },
+            "ez-templatebasedview": {
+                requires: ['ez-view', 'handlebars', 'template'],
+                fullpath: "../../../Resources/public/js/views/ez-templatebasedview.js"
+            },
+            "ez-tabs": {
+                requires: ['node', 'event-tap'],
+                fullpath: "../../../Resources/public/js/extensions/ez-tabs.js"
+            },
+            "ez-view": {
+                requires: ['view', 'base-pluginhost', 'ez-pluginregistry'],
+                fullpath: "../../../Resources/public/js/views/ez-view.js"
+            },
+            "ez-pluginregistry": {
+                requires: ['array-extras'],
+                fullpath: "../../../../Resources/public/js/services/ez-pluginregistry.js"
+            },
+        }
+    }).use('ez-universaldiscoveryview-tests', function (Y) {
+        Y.Test.Runner.run();
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{
+    "name": "ezsystems/platform-ui-bundle",
+    "description": "eZ Platform UI Bundle",
+    "license": "GPL-2.0",
+    "autoload": {
+        "psr-4": {
+            "EzSystems\\PlatformUIBundle\\": ""
+        }
+    },
+    "require": {
+        "ezsystems/platform-ui-assets-bundle": "^3.0.0",
+        "ezsystems/repository-forms": "^1.2",
+        "ezsystems/ezpublish-kernel": "^6.4",
+        "ezsystems/ez-support-tools": "~0.1.0",
+        "zetacomponents/system-information": "^1.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.7",
+        "matthiasnoback/symfony-dependency-injection-test": "0.*"
+    },
+    "extra": {
+        "_ci_branch-comment_": "Keep ci branch up-to-date with master or branch if on stable. ci is never on github but convention used for ci behat testing!",
+        "_ci_branch-comment2_": "Remember to adjust bin/travis/prepare_behat.sh in regards to ezplatform branch when branching of stable branches!",
+        "branch-alias": {
+            "dev-master": "1.5.x-dev",
+            "dev-tmp_ci_branch": "1.5.x-dev"
+        }
+    }
+}

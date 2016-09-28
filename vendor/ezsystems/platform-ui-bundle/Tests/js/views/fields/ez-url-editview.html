@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<title>eZ Url Edit view tests</title>
+</head>
+<body>
+
+<div class="container"></div>
+
+<script type="text/x-handlebars-template" id="urleditview-ez-template">
+    <p class="ez-editfield-input-area">
+        <input type="text" class="ez-url-field-value" {{#if isRequired}}required{{/if}}>
+        <input type="text" class="ez-url-title-value">
+    </p>
+    <p class="ez-editfield-error-message"></p>
+</script>
+
+<script type="text/javascript" src="../../../../Resources/public/vendors/yui3/build/yui/yui.js"></script>
+<script type="text/javascript" src="./assets/editviewregister-tests.js"></script>
+<script type="text/javascript" src="./assets/getfield-tests.js"></script>
+<script type="text/javascript" src="./assets/ez-url-editview-tests.js"></script>
+<script>
+    var filter = (window.location.search.match(/[?&]filter=([^&]+)/) || [])[1] || 'raw',
+        loaderFilter;
+
+    if (filter == 'coverage'){
+        loaderFilter = {
+            searchExp : "/Resources/public/js/",
+            replaceStr: "/Tests/instrument/Resources/public/js/"
+        };
+    } else {
+        loaderFilter = filter;
+    }
+
+    YUI({
+        coverage: ['ez-url-editview'],
+        filter: loaderFilter,
+        modules: {
+            "ez-url-editview": {
+                requires: ['ez-fieldeditview'],
+                fullpath: "../../../../Resources/public/js/views/fields/ez-url-editview.js"
+            },
+            "ez-fieldeditview": {
+                requires: ['ez-templatebasedview'],
+                fullpath: "../../../../Resources/public/js/views/ez-fieldeditview.js"
+            },
+            "ez-templatebasedview": {
+                requires: ['ez-view', 'handlebars', 'template'],
+                fullpath: "../../../../Resources/public/js/views/ez-templatebasedview.js"
+            },
+            "ez-view": {
+                requires: ['view', 'base-pluginhost', 'ez-pluginregistry'],
+                fullpath: "../../../../Resources/public/js/views/ez-view.js"
+            },
+            "ez-pluginregistry": {
+                requires: ['array-extras'],
+                fullpath: "../../../../Resources/public/js/services/ez-pluginregistry.js"
+            },
+        }
+    }).use('ez-url-editview-tests', function (Y) {
+        Y.Test.Runner.run();
+    });
+</script>
+</body>
+</html>

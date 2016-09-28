@@ -1,0 +1,69 @@
+<div class="pure-g ez-editfield-row ez-asynchronousview ez-default-error-style">
+    <div class="pure-u ez-editfield-infos">
+        <label for="ez-field-{{ content.contentId }}-{{ fieldDefinition.identifier }}">
+            <p class="ez-fielddefinition-name">
+                {{ translate_property fieldDefinition.names }}{{#if isRequired}}*{{/if}}:
+            </p>
+            <p class="ez-editfield-error-message">&nbsp;</p>
+            <p class="ez-field-description is-showing-description">
+                {{ translate_property fieldDefinition.descriptions }}
+            </p>
+            <p class="ez-binarybase-help">Drag and drop your image here or simply click on the buttons and select your image manually.</p>
+        </label>
+    </div>
+    <div class="pure-u ez-editfield-input-area">
+        <div class="ez-editfield-input ez-binarybase-drop-area"><div class="ez-image-input-ui">
+            <div class="ez-image-editpreview ez-binarybase-content">
+                <div class="ez-image-editpreview-image">
+                    <img alt="Image preview" class="ez-image-preview" {{#if image.displayUri}}src="{{ image.displayUri }}"{{/if}} alt="Image preview">
+                    <p class="ez-font-icon ez-asynchronousview-loading">Loading a thumbnail of the image...</p>
+                    <p class="ez-asynchronousview-error ez-font-icon">
+                        An error occurred while loading the thumbnail.
+                        <button class="ez-asynchronousview-retry ez-button ez-font-icon pure-button">Retry</button>
+                    </p>
+                </div>
+                <div class="ez-image-properties">
+                    <h2 class="ez-image-properties-title">
+                        Image properties
+                        (<a href="{{ image.originalUri }}" target="_blank" class="ez-image-view-original">View the full width image</a>)
+                    </h2>
+                    <ul class="ez-image-properties-original">
+                        <li><b>File name:</b> <span class="ez-image-properties-name">{{ image.name }}</span></li>
+                        <li><b>Type:</b> <span class="ez-image-properties-type">{{ image.type }}</span></li>
+                        <li><b>File size:</b> <span class="ez-image-properties-size">{{ image.size }}</span>&nbsp;bytes</li>
+                    </ul>
+
+                    <div class="ez-image-alt-text">
+                        <label class="ez-image-alt-text-label" for="ez-field-{{ content.contentId }}-{{ fieldDefinition.identifier }}">Alternative text:</label>
+                        <input type="text"
+                            class="ez-image-alt-text-input"
+                            value="{{ alternativeText }}" 
+                            id="ez-field-{{ content.contentId }}-{{ fieldDefinition.identifier }}">
+                    </div>
+                </div>
+            </div>
+            <p class="ez-binarybase-empty">No image yet.</p>
+            <div class="ez-binarybase-action">
+                <div class="ez-binarybase-warning">
+                    <a href="#" class="ez-binarybase-warning-hide ez-font-icon"></a>
+                    <p class="ez-binarybase-warning-text ez-font-icon"></p>
+                </div>
+                <button class="ez-button ez-button-height ez-button-upload pure-button ez-font-icon">
+                    <span class="ez-binarybase-upload-new">Upload an image</span>
+                    <span class="ez-binarybase-upload-replace">Replace this image</span>
+                </button>
+                <span class="ez-binarybase-remove-option">
+                    or
+                    <button class="ez-button ez-button-height ez-button-delete pure-button ez-font-icon">
+                        Remove this image
+                    </button>
+                </span>
+            </div>
+
+            <input
+                type="file" accept="image/*"
+                class="ez-binarybase-input-file"
+                id="ez-field-{{ content.contentId }}-{{ fieldDefinition.identifier }}"
+            ></div></div>
+    </div>
+</div>

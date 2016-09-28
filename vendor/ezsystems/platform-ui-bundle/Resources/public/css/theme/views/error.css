@@ -1,0 +1,19 @@
+/**
+ * Copyright (C) eZ Systems AS. All rights reserved.
+ * For full copyright and license information view LICENSE file distributed with this source code.
+ */
+
+.ez-errorview-container {
+    background: #000;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.ez-errorview-container .ez-error-dialog {
+    background: #f3f3f3;
+    border-radius: 10px;
+}
+
+.ez-errorview-container .ez-error-dialog h2 {
+    font-size: 160%;
+    border-bottom: 2px solid #bf3e33;
+}

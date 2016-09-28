@@ -1,0 +1,25 @@
+# This file is meant to be imported from ezplatform's behat.yml.dist.
+# All path are relative to the root ezplatform directory.
+repository-forms:
+    suites:
+        content_edit:
+            paths:
+                - vendor/ezsystems/repository-forms/features/ContentEdit
+            contexts:
+                - EzSystems\RepositoryForms\Features\Context\ContentEdit
+                - EzSystems\RepositoryForms\Features\Context\ContentType
+                - EzSystems\RepositoryForms\Features\Context\PagelayoutContext
+        fieldtype_form:
+            paths:
+                - vendor/ezsystems/repository-forms/features/FieldTypeForm
+            contexts:
+                - EzSystems\RepositoryForms\Features\Context\ContentType
+                - EzSystems\RepositoryForms\Features\Context\FieldTypeFormContext
+                - EzSystems\RepositoryForms\Features\Context\SelectionFieldTypeFormContext
+        user_registration:
+            paths:
+                - vendor/ezsystems/repository-forms/features/User/Registration
+            contexts:
+                - EzSystems\RepositoryForms\Features\Context\UserRegistrationContext
+                - Behat\MinkExtension\Context\MinkContext
+                - eZ\Bundle\EzPublishCoreBundle\Features\Context\YamlConfigurationContext

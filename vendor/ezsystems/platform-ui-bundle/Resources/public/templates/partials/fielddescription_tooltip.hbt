@@ -1,0 +1,5 @@
+<div class="ez-field-description ez-tail-down-tooltip">
+    <p class="ez-fielddescription-tooltip-text">
+        {{ translate_property fieldDefinition.descriptions }}
+    </p>
+</div>

@@ -1,0 +1,28 @@
+/**
+ * Copyright (C) eZ Systems AS. All rights reserved.
+ * For full copyright and license information view LICENSE file distributed with this source code.
+ */
+
+.ez-view-subitemlistmoreview {
+    margin: 1em;
+}
+
+.ez-view-subitemlistmoreview .ez-subitemlist-table {
+    width: 100%;
+}
+
+.ez-view-subitemlistmoreview .ez-subitem-column-head {
+    text-align: left;
+    vertical-align: middle;
+    padding: 0.8em 0.5em;
+}
+
+.ez-view-subitemlistmoreview .ez-subitem-priority-column {
+    width: 4em;
+    box-sizing: border-box;
+}
+
+.ez-view-subitemlistmoreview .ez-subitemlist-pagination {
+    margin-top: 2.5em;
+    text-align: center;
+}

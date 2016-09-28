@@ -1,0 +1,65 @@
+/**
+ * Copyright (C) eZ Systems AS. All rights reserved.
+ * For full copyright and license information view LICENSE file distributed with this source code.
+ */
+
+.ez-button {
+    border: 1px solid #bbb;
+    border-radius: 2px;
+    transition: all 0.2s;
+    background: #e6e6e6;
+    background: linear-gradient(to bottom, #fff 0%, #e6e6e6 100%);
+}
+
+a.ez-button {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.ez-button:before {
+    margin-right: 0.5em;
+}
+
+.ez-button:hover {
+    background: #fff;
+    background: linear-gradient(to bottom, #e6e6e6 0%, #fff 100%);
+}
+
+.ez-button.pure-button-disabled,
+.ez-button[disabled] {
+    border: 1px solid #bbb;
+}
+
+.ez-button-delete:before {
+    content: "\E615";
+}
+
+.ez-button-upload:before {
+    content: "\E61f";
+}
+
+.ez-button-tree:before {
+    content: "\E619";
+}
+
+.ez-button-focus:before {
+    content: "\E989";
+}
+
+.ez-button-edit:before {
+    content: "\E606";
+}
+
+.ez-button.is-loading:before {
+    content: "\E61C";
+    -webkit-animation: spin 0.5s infinite linear;
+            animation: spin 0.5s infinite linear;
+}
+
+.ez-button-height.ez-button-upload:before {
+    padding: 0;
+}
+
+.ez-button-calendar:before {
+    content: "\E622";
+    padding-right: 0.5em;
+}

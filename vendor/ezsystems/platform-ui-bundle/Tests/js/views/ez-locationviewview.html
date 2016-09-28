@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<title>eZ Location View view tests</title>
+</head>
+<body>
+
+<div class="container"></div>
+
+<script type="text/x-handlebars-template" id="locationviewview-ez-template">
+    <div class="ez-locationview-content">
+        <div class="ez-tabs">
+            <ul class="ez-tabs-list">
+            {{#each tabs}}
+                <li class="ez-tabs-label{{#if selected}} is-tab-selected{{/if}}" id="li-{{identifier}}" data-tab-identifier="{{ identifier }}"><a href="#ez-tabs-{{ identifier }}">{{ title }}</a></li>
+            {{/each}}
+            </ul>
+            <div class="ez-tabs-panels">
+            {{#each tabs}}
+                <div class="ez-tabs-panel{{#if selected}} is-tab-selected{{/if}}" id="ez-tabs-{{ identifier }}"></div>
+            {{/each}}
+            </div>
+        </div>
+    </div>
+    <div class="ez-actionbar-container"></div>
+    <div class="ez-subitem-container"></div>
+</script>
+
+<script type="text/javascript" src="../../../Resources/public/vendors/yui3/build/yui/yui.js"></script>
+<script type="text/javascript" src="./assets/ez-locationviewview-tests.js"></script>
+<script>
+    var filter = (window.location.search.match(/[?&]filter=([^&]+)/) || [])[1] || 'raw',
+        loaderFilter;
+    if (filter == 'coverage'){
+        loaderFilter = {
+            searchExp : "/Resources/public/js/",
+            replaceStr: "/Tests/instrument/Resources/public/js/"
+        };
+    } else {
+        loaderFilter = filter;
+    }
+
+    YUI({
+        coverage: ['ez-locationviewview', 'ez-tabs'],
+        filter: loaderFilter,
+        modules: {
+            "ez-locationviewview": {
+                requires: [
+                    'ez-templatebasedview', 'ez-tabs', 'event-tap', 'array-extras'
+                ],
+                fullpath: "../../../Resources/public/js/views/ez-locationviewview.js"
+            },
+            "ez-templatebasedview": {
+                requires: ['ez-view', 'handlebars', 'template'],
+                fullpath: "../../../Resources/public/js/views/ez-templatebasedview.js"
+            },
+            "ez-accordion-element": {
+                requires: ['transition'],
+                fullpath: "../../../Resources/public/js/extensions/ez-accordion-element.js"
+            },
+            "ez-tabs": {
+                requires: ['node'],
+                fullpath: "../../../Resources/public/js/extensions/ez-tabs.js"
+            },
+            "ez-view": {
+                requires: ['view', 'base-pluginhost', 'ez-pluginregistry'],
+                fullpath: "../../../Resources/public/js/views/ez-view.js"
+            },
+            "ez-pluginregistry": {
+                requires: ['array-extras'],
+                fullpath: "../../../Resources/public/js/services/ez-pluginregistry.js"
+            },
+        }
+    }).use('ez-locationviewview-tests', function (Y) {
+        Y.Test.Runner.run();
+    });
+</script>
+</body>
+</html>

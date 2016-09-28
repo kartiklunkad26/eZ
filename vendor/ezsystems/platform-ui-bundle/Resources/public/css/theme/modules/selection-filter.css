@@ -1,0 +1,49 @@
+/**
+ * Copyright (C) eZ Systems AS. All rights reserved.
+ * For full copyright and license information view LICENSE file distributed with this source code.
+ */
+
+.ez-selection-filter .ez-selection-filter-list {
+    list-style-type: square;
+}
+
+.ez-selection-filter .ez-selection-filter-item:hover {
+    cursor: pointer;
+}
+
+.ez-selection-filter .ez-selection-filter-item-active {
+    background: #e0e0e0;
+}
+
+.ez-selection-filter .ez-selection-filter-item-selected {
+    background: #528036;
+    color: #fff;
+}
+
+.ez-selection-list {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-top: 0;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+    box-sizing: border-box;
+    box-shadow: 4px 4px 5px 0 rgba(120, 120, 120, 0.75);
+
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+
+    -webkit-transform-origin: center top;
+            transform-origin: center top;
+
+    -webkit-transition: -webkit-transform 0.2s ease;
+            transition: transform 0.2s ease;
+}
+
+.is-list-hidden .ez-selection-values {
+    border: 1px solid #ccc;
+}
+
+.is-list-hidden.is-error .ez-selection-values {
+    border: 1px solid #BF3E33;
+}

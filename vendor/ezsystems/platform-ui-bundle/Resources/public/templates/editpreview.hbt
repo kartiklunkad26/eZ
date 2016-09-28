@@ -1,0 +1,9 @@
+<header class="ez-preview-header">
+    <button class="ez-preview-hide" data-icon-after="&#xe600;">Close preview</button>
+    <h2 class="ez-preview-title">Previewing: <strong>{{ legend }}</strong></h2>
+</header>
+<div class="ez-preview-device {{ mode.id }}">
+    <div class="ez-preview-iframe-wrapper">
+        <iframe class="ez-preview-iframe" width="{{ mode.width }}" height="{{ mode.height }}" src="{{ source }}"></iframe>
+    </div>
+</div>

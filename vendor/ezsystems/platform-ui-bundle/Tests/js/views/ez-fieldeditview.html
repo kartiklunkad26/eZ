@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<title>eZ Field Edit view tests</title>
+</head>
+<body>
+
+<div class="container"></div>
+
+<script type="text/x-handlebars-template" id="fieldeditview-ez-template">
+    <div>
+        <div class="ez-fielddefinition-name">
+        </div>
+        <div class="ez-editfield-error-message">default content</div>
+        <div class="ez-editfield-input-area ez-default-error-style">
+            {{#if fieldDefinition.descriptions.[eng-GB] }}
+            <div class="ez-fielddescription-tooltip ez-tail-down-tooltip">
+                <p class="ez-fielddescription-tooltip-text">
+                    {{ fieldDefinition.descriptions.[eng-GB] }}
+                </p>
+            </div>
+            {{/if}}
+            <div class="ez-editfield-input">
+            </div>
+        </div>
+        <p class="ez-field-description">{{ fieldDefinition.descriptions.[eng-GB] }}</p>
+    </div>
+</script>
+
+<script type="text/x-handlebars-template" id="ezFieldinfoTooltip">
+    <div class="ez-editfield-i">?</div>
+    <div class="ez-fielddefinition-tooltip ez-tail-up-tooltip">
+        <div class="ez-fielddefinition-tooltip-text">
+            <a class="ez-fielddefinition-tooltip-close" href="#close-tooltip" data-icon="&#xe000;">
+                Close
+            </a><br/>
+            {{ fieldDefinition.descriptions.[eng-GB] }}
+        </div>
+    </div>
+</script>
+
+<script type="text/javascript" src="../../../Resources/public/vendors/yui3/build/yui/yui.js"></script>
+<script type="text/javascript" src="./assets/ez-fieldeditview-tests.js"></script>
+<script>
+    var filter = (window.location.search.match(/[?&]filter=([^&]+)/) || [])[1] || 'raw',
+        loaderFilter;
+
+    if (filter == 'coverage'){
+        loaderFilter = {
+            searchExp : "/Resources/public/js/",
+            replaceStr: "/Tests/instrument/Resources/public/js/"
+        };
+    } else {
+        loaderFilter = filter;
+    }
+
+    YUI({
+        coverage: ['ez-fieldeditview'],
+        filter: loaderFilter,
+        modules: {
+            "ez-fieldeditview": {
+                requires: ['ez-templatebasedview', 'event-tap', 'event-outside', 'node-style'],
+                fullpath: "../../../Resources/public/js/views/ez-fieldeditview.js"
+            },
+            "ez-templatebasedview": {
+                requires: ['ez-view', 'handlebars', 'template'],
+                fullpath: "../../../Resources/public/js/views/ez-templatebasedview.js"
+            },
+            "ez-view": {
+                requires: ['view', 'base-pluginhost', 'ez-pluginregistry'],
+                fullpath: "../../../Resources/public/js/views/ez-view.js"
+            },
+            "ez-pluginregistry": {
+                requires: ['array-extras'],
+                fullpath: "../../../../Resources/public/js/services/ez-pluginregistry.js"
+            },
+        }
+    }).use('ez-fieldeditview-tests', function (Y) {
+        Y.Test.Runner.run();
+    });
+</script>
+</body>
+</html>

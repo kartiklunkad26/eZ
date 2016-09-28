@@ -1,0 +1,45 @@
+/**
+ * Copyright (C) eZ Systems AS. All rights reserved.
+ * For full copyright and license information view LICENSE file distributed with this source code.
+ */
+
+.ez-view-dateeditview .ez-date-input-ui {
+    display: inline-block;
+    vertical-align: bottom;
+    position: relative;
+}
+
+.ez-view-dateeditview .ez-date-input {
+    width: 10em;
+}
+
+.ez-view-dateeditview .ez-yui-calendar-container {
+    display: none;
+    top: 100%;
+    right: 0;
+    position: absolute;
+}
+
+.ez-view-dateeditview.is-calendar-visible .ez-yui-calendar-container {
+    display: block;
+}
+
+.ez-view-dateeditview .ez-date-cancel-button {
+    margin-left: -1.8em;
+}
+
+.ez-view-dateeditview .ez-field-description {
+    visibility: hidden;
+}
+
+.ez-view-dateeditview.is-showing-description .ez-field-description {
+    visibility: visible;
+}
+
+.ez-view-dateeditview.is-calendar-visible.is-showing-description .ez-field-description {
+    visibility: hidden;
+}
+
+.ez-view-dateeditview .ez-field-description {
+    margin:  0 0 0 2.5em;
+}

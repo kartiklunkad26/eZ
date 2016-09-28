@@ -1,0 +1,27 @@
+<div class="pure-g">
+    <div class="ez-main-content pure-u" tabindex="0">
+        <header class="ez-page-header">
+            <a href="#" class="ez-view-close" data-icon-after="&#xe62a;"></a>
+            <h1 class="ez-page-header-name" data-icon="&#xe601;">{{ content.name }}</h1>
+            <div class="ez-infos">
+                <ul class="ez-technical-infos">
+                    <li>{{ translate_property contentType.names }}</li>
+                    <li>Created by {{ owner.name }}</li>
+                    {{#if content.contentId}}
+                    <li>{{ content.lastModificationDate }}</li>
+                    <li>Content ID: {{ content.contentId }}, Location ID: {{ mainLocation.locationId }}</li>
+                    {{/if}}
+                </ul>
+                <p class="ez-description">{{ translate_property contentType.descriptions }}</p>
+            </div>
+            <div class="ez-content-language-container">
+                <div class="ez-content-language-indicator">
+                    <span class="ez-content-current-language">{{ language_name languageCode }}</span>
+                    <a href="#" class="ez-change-content-language-link">(change)</a>
+                </div>
+            </div>
+        </header>
+        <div class="ez-contenteditformview-container"></div>
+    </div>
+    <div class="ez-editactionbar-container pure-u"></div>
+</div>

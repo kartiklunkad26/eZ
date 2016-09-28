@@ -1,0 +1,35 @@
+/**
+ * Copyright (C) eZ Systems AS. All rights reserved.
+ * For full copyright and license information view LICENSE file distributed with this source code.
+ */
+
+.ez-view-binaryfileeditview .ez-binaryfile-input-ui {
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.ez-view-binaryfileeditview .ez-binaryfile-content:before {
+    display: block;
+    float: left;
+}
+
+.ez-view-binaryfileeditview .ez-binaryfile-content:after {
+    display: block;
+    clear: both;
+    content: "";
+}
+
+.ez-view-binaryfileeditview .ez-binaryfile-properties {
+    margin: 0;
+    padding: 0;
+    line-height: 1.4em;
+}
+
+.ez-view-binaryfileeditview .ez-binaryfile-properties-download {
+    margin-top: 1em;
+}
+
+.ez-view-binaryfileeditview .ez-field-description {
+    margin: 0;
+}

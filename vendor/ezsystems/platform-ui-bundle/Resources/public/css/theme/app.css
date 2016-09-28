@@ -1,0 +1,180 @@
+/**
+ * Copyright (C) eZ Systems AS. All rights reserved.
+ * For full copyright and license information view LICENSE file distributed with this source code.
+ */
+
+@font-face {
+    font-family: 'ez-platformui-icomoon';
+    src:url('../../fonts/icomoon.eot');
+    src:url('../../fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/icomoon.woff') format('woff'),
+        url('../../fonts/icomoon.ttf') format('truetype'),
+        url('../../fonts/icomoon.svg#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.ez-platformui-app-page body {
+    background: #333;
+    transition: all 3s ease;
+}
+
+.ez-platformui-app-ready body {
+    background: #fff;
+}
+
+.ez-platformui-app {
+    font-size: 15px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.ez-platformui-app .pure-g [class *= "pure-u"],
+.ez-platformui-app .yui3-g [class *= "yui3-u"] {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #009;
+}
+
+.ez-platformui-app h1,
+.ez-platformui-app h2,
+.ez-platformui-app h3,
+.ez-platformui-app h4,
+.ez-platformui-app h5,
+.ez-platformui-app h6 {
+    font-weight: 500;
+}
+
+.ez-view-container {
+    transition: opacity 0.2s ease-in-out;
+}
+
+.is-app-loading .ez-view-container {
+    opacity: 0.6;
+}
+
+.ez-view-container:before {
+    opacity: 0;
+}
+
+.is-app-loading .ez-view-container:before {
+    -webkit-animation: spin 0.5s infinite linear;
+            animation: spin 0.5s infinite linear;
+    box-sizing: border-box;
+    border-radius: 2em;
+    border-width: 0.5em;
+    border-style: solid;
+    border-color: rgba(50, 50, 50, 0.8) rgba(50, 50, 50, 0.8) rgba(50, 50, 50, 0.8) rgba(50, 50, 50, 0.1);
+    opacity: 1;
+    z-index: 10000;
+}
+
+.ez-platformui-app .ez-inline-loader {
+    -webkit-animation: spin 0.5s infinite linear;
+            animation: spin 0.5s infinite linear;
+    box-sizing: border-box;
+    border-radius: 100%;
+    border-width: 4px;
+    border-style: solid;
+    border-color: #ED9036 #ED9036 #ED9036 #fff;
+    border-color: rgba(237, 144, 54, 0.28) rgba(237, 144, 54, 0.29) rgba(237, 144, 54, 0.29) rgba(237, 144, 54, 0.9);
+}
+
+.ez-menu-container {
+    background: #333;
+    color: #fff;
+    margin-top: -1px; /* to align with the bottom border of the navigation hub */
+}
+
+.ez-mainviews {
+    background: #333;
+}
+
+.ez-mainviews,
+.ez-menu-container,
+.ez-navigation-container {
+    transition: all 0.3s ease;
+}
+
+.ez-notification-container {
+    transition: all 0.2s ease;
+}
+
+/*csslint vendor-prefix: false */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes ez-expand {
+    0% {
+        -webkit-transform: scaleY(0);
+    }
+    100% {
+        -webkit-transform: scaleY(1);
+    }
+}
+
+@-webkit-keyframes ez-collapse {
+    0% {
+        -webkit-transform: scaleY(1);
+        max-height: 100%;
+    }
+    100% {
+        -webkit-transform: scaleY(0);
+        max-height: 0;
+    }
+}
+
+@keyframes ez-expand {
+    0% {
+        transform: scaleY(0);
+    }
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+@keyframes ez-collapse {
+    0% {
+        transform: scaleY(1);
+        max-height: 100%;
+    }
+    100% {
+        transform: scaleY(0);
+        max-height: 0;
+    }
+}

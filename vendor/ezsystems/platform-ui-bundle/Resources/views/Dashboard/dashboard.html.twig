@@ -1,0 +1,21 @@
+{% extends "eZPlatformUIBundle::pjax_admin.html.twig" %}
+
+{% trans_default_domain "dashboard" %}
+
+{% block header_title %}
+    <h1 class="ez-page-header-name" data-icon="&#xe618;">{{ 'dashboard.title'|trans }}</h1>
+{% endblock %}
+
+{% block content %}
+    <section class="ez-serverside-content">
+        <ul>
+            <li><a href="{{ path('admin_systeminfo') }}">{{ 'system.information'|trans({}, 'systeminfo') }}</a></li>
+            <li><a href="{{ path('admin_languagelist') }}">{{ 'language.list'|trans({}, 'language') }}</a></li>
+            <li><a href="{{ path('admin_sectionlist') }}">{{ 'section.list'|trans({}, 'section') }}</a></li>
+            <li><a href="{{ path('admin_contenttype') }}">{{ 'content_type.dashboard_title'|trans({}, 'content_type') }}</a></li>
+            <li><a href="{{ path('admin_role') }}">{{ 'role.dashboard_title'|trans({}, 'role') }}</a></li>
+        </ul>
+    </section>
+{% endblock %}
+
+{% block title %}{{ 'dashboard.title'|trans }}{% endblock %}

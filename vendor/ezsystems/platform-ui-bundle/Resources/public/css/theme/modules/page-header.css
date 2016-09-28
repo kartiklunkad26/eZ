@@ -1,0 +1,12 @@
+/**
+ * Copyright (C) eZ Systems AS. All rights reserved.
+ * For full copyright and license information view LICENSE file distributed with this source code.
+ */
+
+.ez-page-header {
+    color: #000;
+}
+
+.ez-page-header-name[data-icon]:before {
+    padding-right: 0.3em;
+}

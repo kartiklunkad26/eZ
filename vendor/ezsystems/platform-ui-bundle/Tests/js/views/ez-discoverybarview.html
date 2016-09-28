@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+<title>eZ Discovery Bar View tests</title>
+</head>
+<body>
+
+<div class="container"></div>
+
+<script type="text/x-handlebars-template" id="barview-ez-template">
+    <menu class="ez-actions-list active-actions" tabindex="0">
+    </menu>
+    <button class="view-more-button is-hidden">{{ viewMoreText }}</button>
+    <menu class="ez-actions-list view-more-actions is-hidden">
+    </menu>
+</script>
+
+<script type="text/x-handlebars-template" id="buttonactionview-ez-template">
+    <button class="ez-action {{#if disabled}}is-disabled {{else}}{{#if actionId}}action-trigger {{/if}}{{/if}}{{#if hint}}with-hint{{/if}}" data-action="{{ actionId }}">
+        <div class="font-icon action-icon">
+            <p class="action-label">{{ label }}</p>
+            {{#if hint}}
+            <p class="action-hint">{{ hint }}</p>
+            {{/if}}
+        </div>
+    </button>
+</script>
+
+
+<script type="text/x-handlebars-template" id="treeactionview-ez-template">
+tree
+<div class="ez-expandable-area">
+</div>
+</script>
+
+<script type="text/javascript" src="../../../Resources/public/vendors/yui3/build/yui/yui.js"></script>
+<script type="text/javascript" src="./assets/ez-discoverybarview-tests.js"></script>
+<script>
+    var filter = (window.location.search.match(/[?&]filter=([^&]+)/) || [])[1] || 'raw',
+        loaderFilter;
+    if (filter == 'coverage'){
+        loaderFilter = {
+            searchExp : "/Resources/public/js/",
+            replaceStr: "/Tests/instrument/Resources/public/js/"
+        };
+    } else {
+        loaderFilter = filter;
+    }
+
+    YUI({
+        coverage: ['ez-discoverybarview'],
+        filter: loaderFilter,
+        modules: {
+            "ez-discoverybarview": {
+                requires: ['ez-barview', 'ez-buttonactionview', 'ez-treeactionview'],
+                fullpath: "../../../Resources/public/js/views/ez-discoverybarview.js"
+            },
+            "ez-barview": {
+                requires: ['ez-templatebasedview', 'event-tap', 'event-resize'],
+                fullpath: "../../../Resources/public/js/views/ez-barview.js"
+            },
+            "ez-buttonactionview": {
+                requires: ['ez-templatebasedview'],
+                fullpath: "../../../Resources/public/js/views/actions/ez-buttonactionview.js"
+            },
+            "ez-treeactionview": {
+                requires: ['ez-buttonactionview', 'ez-treeview', 'ez-expandable', 'handlebars'],
+                fullpath: "../../../Resources/public/js/views/actions/ez-treeactionview.js"
+            },
+            "ez-treeview": {
+                requires: ['ez-templatebasedview', 'event-tap'],
+                fullpath: "../../../Resources/public/js/views/ez-treeview.js"
+            },
+            "ez-templatebasedview": {
+                requires: ['ez-view', 'handlebars', 'template'],
+                fullpath: "../../../Resources/public/js/views/ez-templatebasedview.js"
+            },
+            "ez-view": {
+                requires: ['view', 'base-pluginhost', 'ez-pluginregistry'],
+                fullpath: "../../../Resources/public/js/views/ez-view.js"
+            },
+            "ez-pluginregistry": {
+                requires: ['array-extras'],
+                fullpath: "../../../Resources/public/js/services/ez-pluginregistry.js"
+            },
+            "ez-expandable": {
+                requires: ['view'],
+                fullpath: "../../../Resources/public/js/extensions/ez-expandable.js"
+            },
+        }
+    }).use('ez-discoverybarview-tests', function (Y) {
+        Y.Test.Runner.run();
+    });
+</script>
+</body>
+</html>

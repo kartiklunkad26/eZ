@@ -1,0 +1,52 @@
+{% extends "eZPlatformUIBundle::pjax_admin.html.twig" %}
+{# @var role_draft \eZ\Publish\API\Repository\Values\User\RoleDraft #}
+{# @var role_name string #}
+
+{% trans_default_domain "role" %}
+
+{% set edit_title = "role.edit_title"|trans({"%roleName%": role_name|trans}) %}
+
+{% block title %}{{ edit_title }}{% endblock %}
+
+{% block header_breadcrumbs %}
+    {% set breadcrumb_items = [
+        {link: path("admin_dashboard"), label: "dashboard.title"|trans({}, "dashboard")},
+        {link: path("admin_role"), label: "role.dashboard_title"|trans({}, "role")},
+        {link: null, label: edit_title}
+    ] %}
+
+    {{ parent() }}
+{% endblock %}
+
+{% block header_title %}
+    <h1 class="ez-page-header-name" data-icon="&#xe62d;">{{ edit_title }}</h1>
+{% endblock %}
+
+{% block content %}
+    <section class="ez-serverside-content">
+        {{ form_start(form, {"action": action_url, "attr": {"class": "pure-form pure-form-aligned"}}) }}
+            {{ form_errors(form) }}
+
+            <fieldset>
+                <div class="pure-control-group">
+                    {{ form_label(form.identifier) }}
+                    {{ form_errors(form.identifier) }}
+                    {{ form_widget(form.identifier) }}
+                </div>
+            </fieldset>
+
+            <div class="pure-controls">
+                {{ form_widget(form.removeDraft, {"attr": {"class": "pure-button ez-button", "formnovalidate": "formnovalidate"}}) }}
+                {{ form_widget(form.saveRole, {"attr": {"class": "pure-button ez-button"}}) }}
+            </div>
+
+        {{ form_end(form) }}
+    </section>
+{% endblock %}
+
+{% block notification %}
+    {% if hasErrors|length %}
+        <li data-state="error">{{ "form.validation_error"|trans(domain="general") }}</li>
+    {% endif %}
+    {{ parent() }}
+{% endblock %}

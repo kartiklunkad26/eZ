@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>eZ Content Edit View Service tests</title>
+</head>
+<body>
+
+<script type="text/javascript" src="../../../../Resources/public/vendors/yui3/build/yui/yui.js"></script>
+<script type="text/javascript" src="./assets/ez-contenteditviewservice-tests.js"></script>
+<script type="text/javascript" src="./assets/fake-models.js"></script>
+<script>
+    var filter = (window.location.search.match(/[?&]filter=([^&]+)/) || [])[1] || 'raw',
+        loaderFilter;
+    if (filter == 'coverage'){
+        loaderFilter = {
+            searchExp : "/Resources/public/js/",
+            replaceStr: "/Tests/instrument/Resources/public/js/"
+        };
+    } else {
+        loaderFilter = filter;
+    }
+
+    YUI({
+        coverage: ['ez-contenteditviewservice'],
+        filter: loaderFilter,
+        modules: {
+            "ez-contenteditviewservice": {
+                requires: ['ez-viewservice', 'parallel', 'fake-models', 'array-extras'],
+                fullpath: "../../../../Resources/public/js/views/services/ez-contenteditviewservice.js"
+            },
+            "ez-viewservice": {
+                requires: ['view'],
+                fullpath: "../../../../Resources/public/js/views/services/ez-viewservice.js"
+            },
+            "ez-viewservicebaseplugin": {
+                requires: ['plugin'],
+                fullpath: "../../../../Resources/public/js/views/services/plugins/ez-viewservicebaseplugin.js"
+            }
+        }
+    }).use('ez-contenteditviewservice-tests', function (Y) {
+        Y.Test.Runner.run();
+    });
+</script>
+</body>
+</html>

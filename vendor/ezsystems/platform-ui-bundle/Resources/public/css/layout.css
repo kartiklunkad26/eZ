@@ -1,0 +1,125 @@
+/**
+ * Copyright (C) eZ Systems AS. All rights reserved.
+ * For full copyright and license information view LICENSE file distributed with this source code.
+ */
+
+.ez-platformui-app-page {
+    height: 100%;
+}
+
+.ez-platformui-app-page body {
+    height: 100%;
+    margin: 0;
+}
+
+.ez-platformui-app a:hover {
+    text-decoration: none;
+}
+
+.ez-platformui-app {
+    opacity: 0;
+    transition: opacity 0.2s ease, left 0.3s ease;
+}
+
+.ez-platformui-app p {
+    line-height: 1.4em;
+    pointer-events: auto;
+}
+
+.is-app-open {
+    opacity: 1;
+    min-height: 100%;
+    overflow: auto;
+}
+
+.ez-view-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.is-discoverybar-minimized .ez-mainviews {
+    padding-left: 4em;
+}
+
+.is-menu-hidden .ez-mainviews {
+    padding-left: 0;
+}
+
+.is-menu-hidden .ez-menu-container {
+    margin-left: 0;
+    opacity: 0;
+
+    -webkit-transform: translateX(-230px);
+            transform: translateX(-230px);
+    display: none;
+}
+
+.ez-mainviews {
+    padding-left: 230px;
+}
+
+.is-discoverybar-minimized .ez-menu-container {
+    width: 4em;
+    margin-left: -4em;
+}
+
+.ez-menu-container {
+    width: 230px;
+    margin-left: -230px;
+}
+
+.is-navigation-hidden .ez-navigation-container {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.ez-navigation-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-height: 20em;
+    z-index: 100;
+}
+
+.ez-notification-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 6000001;
+}
+
+.is-app-loading .ez-view-container:before {
+    display: block;
+    content: " ";
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+
+    width: 2em;
+    height: 2em;
+    font-size: 200%;
+}
+
+.ez-editfield-input-area .ez-field-sublabel {
+    display: block;
+    margin: 0 2em;
+}
+
+.ez-platformui-app .ez-inline-loader {
+    height: 16px;
+    width: 16px;
+    display: none;
+}
+
+.ez-platformui-app .is-loading > .ez-inline-loader {
+    display: inline-block;
+}
+
+.is-app-loading {
+    pointer-events: none;
+}

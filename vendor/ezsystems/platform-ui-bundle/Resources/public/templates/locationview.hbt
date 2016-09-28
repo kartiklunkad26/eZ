@@ -1,0 +1,32 @@
+<div class="pure-g">
+    <div class="ez-locationview-content pure-u">
+        <header class="ez-page-header">
+            <nav class="ez-location-breadcrumbs">
+                <ul class="ez-breadcrumbs-list">
+                {{#each path}}
+                    <li class="ez-breadcrumbs-item"><a href="{{ path "viewLocation" id=id languageCode=contentInfo.mainLanguageCode }}">{{ contentInfo.name }}</a></li>
+                {{/each}}
+                    <li class="ez-breadcrumbs-item">{{ content.name }}</li>
+                </ul>
+            </nav>
+            <div class="ez-page-header-name ez-contenttype-icon ez-contenttype-icon-{{ contentType.identifier }}">
+                <h1 class="ez-page-header-content-name">{{ content.name }}</h1>
+                <span class="ez-page-header-contenttype">{{ translate_property contentType.names }}</span>
+            </div>
+        </header>
+        <section class="ez-tabs">
+            <ul class="ez-tabs-list">
+            {{#each tabs}}
+                <li class="ez-tabs-label{{#if selected}} is-tab-selected{{/if}}" data-tab-identifier="{{ identifier }}"><a href="#ez-tabs-{{ identifier }}">{{ title }}</a></li>
+            {{/each}}
+            </ul>
+            <div class="ez-tabs-panels">
+            {{#each tabs}}
+                <div class="ez-tabs-panel{{#if selected}} is-tab-selected{{/if}}" id="ez-tabs-{{ identifier }}"></div>
+            {{/each}}
+            </div>
+        </section>
+        <section class="ez-subitem-container"></section>
+    </div>
+    <div class="ez-actionbar-container pure-u"></div>
+</div>

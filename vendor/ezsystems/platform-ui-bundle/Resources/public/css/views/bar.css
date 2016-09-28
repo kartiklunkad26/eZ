@@ -1,0 +1,58 @@
+/**
+ * Copyright (C) eZ Systems AS. All rights reserved.
+ * For full copyright and license information view LICENSE file distributed with this source code.
+ */
+
+.ez-view-barview .ez-actions-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ez-view-barview .view-more-button {
+    margin: 0.5em;
+    padding: 0.5em 2em;
+}
+
+.ez-view-barview .is-hidden {
+    display: none;
+}
+
+.ez-view-barview .view-more-actions.is-hidden {
+    right: -230px;
+    opacity: 0;
+    display: block;
+}
+
+.ez-view-barview .view-more-actions {
+    position: fixed;
+    bottom: 0;
+    width: 230px;
+    right: 230px;
+    z-index: 1015;
+}
+
+.ez-view-barview .ez-actions-list .ez-action[disabled] {
+    cursor: default;
+}
+
+.is-trashbar-minimized .ez-view-barview .view-more-actions.is-hidden,
+.is-actionbar-minimized .ez-view-barview .view-more-actions.is-hidden {
+    right: 4em;
+}
+
+.is-trashbar-minimized .ez-view-barview .view-more-button,
+.is-actionbar-minimized .ez-view-barview .view-more-button {
+    padding: 0.5em 0;
+}
+
+.is-trashbar-minimized .ez-view-barview .view-more-actions,
+.is-actionbar-minimized .ez-view-barview .view-more-actions {
+    right: 4em;
+}
+
+.is-navigationhubview-fixed .ez-view-barview {
+    position: fixed;
+    z-index: 1000;
+    width: 230px;
+}

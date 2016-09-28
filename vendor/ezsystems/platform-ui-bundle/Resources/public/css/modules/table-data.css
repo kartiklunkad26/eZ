@@ -1,0 +1,22 @@
+/**
+ * Copyright (C) eZ Systems AS. All rights reserved.
+ * For full copyright and license information view LICENSE file distributed with this source code.
+ */
+
+.ez-table-data {
+    margin: 1em 0;
+}
+
+.is-flexible {
+    text-align: center;
+}
+
+.is-flexible .ez-table-data-container {
+    display: inline-block;
+    text-align: left;
+}
+
+.ez-table-data .ez-table-data-id,
+.ez-table-data .ez-table-data-count {
+    text-align: center;
+}

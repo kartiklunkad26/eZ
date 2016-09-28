@@ -1,0 +1,21 @@
+{
+    "url": "http://github.com/ezsystems/PlatformUIBundle",
+    "logo": "http://ez.no/extension/ez_ezno/design/ezno_2014/images/ez-logo.png",
+    "options": {
+        "external": {
+            "data": "http://yuilibrary.com/yui/docs/api/data.json"
+        },
+        "linkNative": "true",
+        "outdir": "api",
+        "paths": [
+            "./Resources/public/js/apps",
+            "./Resources/public/js/views",
+            "./Resources/public/js/models",
+            "./Resources/public/js/extensions",
+            "./Resources/public/js/external",
+            "./Resources/public/js/services",
+            "./Resources/public/js/helpers",
+            "./Resources/public/js/alloyeditor"
+        ]
+    }
+}

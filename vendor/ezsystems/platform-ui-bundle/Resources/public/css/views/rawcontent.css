@@ -1,0 +1,28 @@
+/**
+ * Copyright (C) eZ Systems AS. All rights reserved.
+ * For full copyright and license information view LICENSE file distributed with this source code.
+ */
+
+.ez-view-rawcontentview {
+    position: static;
+    margin-top: 2em;
+    position: relative;
+}
+
+.ez-view-rawcontentview .ez-raw-content-title {
+    margin: 0;
+    padding: 0 1em;
+    line-height: 2.5em;
+}
+
+.ez-view-rawcontentview .ez-fieldgroup {
+    margin: 0 1em 1em 1em;
+}
+
+.ez-view-rawcontentview .ez-fieldgroup-name {
+    margin: 0 0 0 2em;
+    position: relative;
+    top: 0.9em;
+    display: inline-block;
+    padding: 0.2em 0.6em;
+}

@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<title>eZ Login Form view tests</title>
+</head>
+<body>
+<div class="container"></div>
+
+<script type="text/x-handlebars-template" id="loginformview-ez-template">
+    <form action="" class="ez-loginform" method="post">
+        <p class="ez-loginform-message">default message</p>
+
+        <input type="text" name="username" value="" class="ez-loginform-interactive" />
+        <input type="password" name="password" value="" class="ez-loginform-interactive" />
+        <button class="ez-loginform-button ez-loginform-interactive">Login</button>
+    </form>
+</script>
+
+<script type="text/javascript" src="../../../Resources/public/vendors/yui3/build/yui/yui.js"></script>
+<script type="text/javascript" src="./assets/ez-loginformview-tests.js"></script>
+<script>
+    var filter = (window.location.search.match(/[?&]filter=([^&]+)/) || [])[1] || 'raw',
+        loaderFilter;
+
+    if (filter == 'coverage'){
+        loaderFilter = {
+            searchExp : "/Resources/public/js/",
+            replaceStr: "/Tests/instrument/Resources/public/js/"
+        };
+    } else {
+        loaderFilter = filter;
+    }
+
+    YUI({
+        coverage: ['ez-loginformview'],
+        filter: loaderFilter,
+        modules: {
+            "ez-loginformview": {
+                requires: ['ez-templatebasedview', 'node-style'],
+                fullpath: "../../../Resources/public/js/views/ez-loginformview.js"
+            },
+            "ez-templatebasedview": {
+                requires: ['ez-view', 'handlebars', 'template'],
+                fullpath: "../../../Resources/public/js/views/ez-templatebasedview.js"
+            },
+            "ez-view": {
+                requires: ['view', 'base-pluginhost', 'ez-pluginregistry'],
+                fullpath: "../../../Resources/public/js/views/ez-view.js"
+            },
+            "ez-pluginregistry": {
+                requires: ['array-extras'],
+                fullpath: "../../../../Resources/public/js/services/ez-pluginregistry.js"
+            },
+        }
+    }).use('ez-loginformview-tests', function (Y) {
+        Y.Test.Runner.run();
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+/**
+ * Copyright (C) eZ Systems AS. All rights reserved.
+ * For full copyright and license information view LICENSE file distributed with this source code.
+ */
+
+.ez-view-fieldview .ez-fieldview-row {
+    padding-left: 161px; /* 140 +1 to compensate the border */
+}
+
+.ez-view-fieldview .ez-fieldview-label {
+    background: #fafafa;
+    color: #333;
+    border-right: 1px solid #ccc;
+    box-sizing: border-box
+}
+
+.ez-view-fieldview.ez-fieldview-is-empty .ez-fieldview-value-content {
+    color: #888;
+    font-style: italic;
+}

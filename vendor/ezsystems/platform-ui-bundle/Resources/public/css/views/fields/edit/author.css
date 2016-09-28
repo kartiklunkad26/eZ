@@ -1,0 +1,34 @@
+/**
+ * Copyright (C) eZ Systems AS. All rights reserved.
+ * For full copyright and license information view LICENSE file distributed with this source code.
+ */
+
+.ez-view-authoreditview .ez-editfield-input,
+.ez-view-authoreditview .ez-editfield-input-no-validation {
+    margin-top: 0.3em;
+}
+
+.ez-view-authoreditview .ez-field-sublabel:first-of-type {
+    padding-top: 1.5em;
+}
+
+.ez-view-authoreditview .ez-author-input-ui {
+    width: 100%;
+    display: inline-block;
+}
+
+.ez-view-authoreditview .ez-author-input-ui input {
+    width: 100%;
+}
+
+.ez-view-authoreditview .ez-author-secondary .ez-fielddefinition-name,
+.ez-view-authoreditview .ez-author-secondary .ez-fielddefinition-tooltip,
+.ez-view-authoreditview .ez-author-secondary .ez-editfield-i,
+.ez-view-authoreditview .ez-author-email .ez-fielddefinition-name {
+    visibility: hidden;
+}
+
+.ez-view-authoreditview .ez-field-author-remove {
+    display: block;
+    margin-top: 3em;
+}

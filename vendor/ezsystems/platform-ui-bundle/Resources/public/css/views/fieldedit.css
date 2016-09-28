@@ -1,0 +1,92 @@
+/**
+ * Copyright (C) eZ Systems AS. All rights reserved.
+ * For full copyright and license information view LICENSE file distributed with this source code.
+ */
+
+.ez-editfield-row {
+    padding-left: 200px;
+}
+
+.ez-editfield-infos {
+    margin-left: -200px;
+    width: 200px;
+}
+
+.ez-editfield-input-area {
+    width: 100%;
+}
+
+.ez-editfield-input-area .ez-field-sublabel {
+    display: block;
+    margin: 0 2em 0.3em 2em;
+}
+
+.ez-editfield-input-area .ez-field-sublabel.ez-first-sublabel {
+    padding-top: 1.5em;
+}
+
+.ez-editfield-input,
+.ez-editfield-input-no-validation {
+    margin: 1em 2em 0.3em 2em;
+}
+
+.ez-editfield-input:before {
+    width: 2em;
+    margin-left: -2em;
+    display: inline-block;
+    text-align: center;
+    height: 1.8em;
+    line-height: 1.8em;
+    box-sizing: border-box;
+}
+
+.ez-editfield-infos .ez-fielddefinition-name, .ez-editfield-infos .ez-editfield-error-message {
+    margin: 0;
+    padding: 0 0.2em 0 0;
+}
+
+.ez-editfield-infos label {
+    padding: 1.5em 0.5em 1em 0.5em;
+    margin: 0;
+    text-align: right;
+    vertical-align: baseline;
+    display: block;
+}
+
+.ez-editfield-infos .ez-editfield-error-message {
+    line-height: 1.2em;
+    min-height: 2.4em;
+}
+
+.is-using-touch-device .ez-editfield-input-area .ez-field-description {
+    position: absolute;
+    top: -100%;
+    max-width: 48%;
+    z-index: 10;
+    display: none;
+    margin-right: 2em;
+}
+
+.is-using-touch-device .ez-editfield-input-area .ez-field-description.is-visible {
+    height: auto;
+    display: inline;
+}
+
+.is-using-touch-device .ez-editfield-input-area .ez-fielddescription-tooltip-text {
+    display: block;
+    margin: 0 0 0 -13px;
+    padding: 8px;
+    text-align: left;
+}
+
+.ez-standard-description .ez-field-description {
+    margin:  0 0 0 2.5em;
+}
+
+.ez-standard-description .ez-field-description {
+    visibility: hidden;
+}
+
+.ez-standard-description.is-showing-description .ez-field-description {
+    visibility: visible;
+}

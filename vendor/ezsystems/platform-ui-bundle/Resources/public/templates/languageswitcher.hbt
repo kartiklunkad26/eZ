@@ -1,0 +1,20 @@
+<div class="ez-selected-language">
+    {{#if otherTranslations}}
+        <a href="#" class="ez-dropdown-list-indicator">
+            {{ language_name currentTranslation }}
+        </a>
+    {{else}}
+        {{ language_name currentTranslation }}
+    {{/if}}
+</div>
+{{#if otherTranslations}}
+    <ul class="ez-expandable-area">
+    {{#each otherTranslations}}
+        <li class="ez-content-translation">
+            <a class="ez-language-switch-link" href="{{ path "viewLocation" id=../location.id languageCode=this }}">
+                {{ language_name this }}
+            </a>
+        </li>
+    {{/each}}
+    </ul>
+{{/if}}

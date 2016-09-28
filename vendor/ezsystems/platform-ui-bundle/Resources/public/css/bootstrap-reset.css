@@ -1,0 +1,49 @@
+/**
+ * Copyright (C) eZ Systems AS. All rights reserved.
+ * For full copyright and license information view LICENSE file distributed with this source code.
+ */
+
+.ez-platformui-app legend {
+    width: auto;
+    font-size: 100%;
+}
+
+.ez-platformui-app h1,
+.ez-platformui-app h2,
+.ez-platformui-app h3,
+.ez-platformui-app h4,
+.ez-platformui-app h5,
+.ez-platformui-app h6 {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: inherit;
+}
+
+.ez-platformui-app header {
+    background: none;
+}
+
+.ez-platformui-app input[type=text],
+.ez-platformui-app input[type=email],
+.ez-platformui-app input[type=number],
+.ez-platformui-app input[type=search],
+.ez-platformui-app input[type=password],
+.ez-platformui-app textarea {
+    border-radius: 0;
+}
+
+.ez-platformui-app li,
+.ez-platformui-app label,
+.ez-platformui-app input,
+.ez-platformui-app button,
+.ez-platformui-app select,
+.ez-platformui-app textarea {
+    line-height: normal;
+}
+
+.ez-platformui-app .gm-style {
+    line-height: normal;
+}
+
+.ez-platformui-app .gm-style img {
+    max-width: none;
+}

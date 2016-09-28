@@ -1,0 +1,21 @@
+<h1 class="ez-universaldiscovery-title">{{ title }}</h1>
+
+<section class="ez-tabs">
+    <ul class="ez-tabs-list">
+    {{#each methods}}
+        <li class="ez-tabs-label"><a href="#{{ identifier }}">{{ title }}</a></li>
+    {{/each}}
+    </ul>
+    <div class="ez-tabs-panels">
+    {{#each methods}}
+        <div class="ez-tabs-panel" id="{{ identifier }}"></div>
+    {{/each}}
+    </div>
+</section>
+<div class="ez-universaldiscovery-toolbar">
+    <div class="ez-universaldiscovery-confirmed-list-container"></div>
+    <div class="ez-universaldiscovery-actions">
+        <a href="#" class="ez-universaldiscovery-cancel">Cancel</a>
+        <button class="ez-universaldiscovery-confirm ez-button pure-button" disabled="disabled">Confirm selection</button>
+    </div>
+</div>

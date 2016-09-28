@@ -1,0 +1,35 @@
+<div class="ez-fieldview-row pure-g ez-asynchronousview">
+    <div class="ez-fieldview-label pure-u">
+        <p class="ez-fieldview-name"><strong>{{ translate_property fieldDefinition.names }}</strong></p>
+    </div>
+    <div class="ez-fieldview-value pure-u"><div class="ez-fieldview-value-content">
+            {{#if isEmpty}}
+                This field is empty
+            {{else}}
+                {{#if relatedContents }}
+                    <ul>
+                    {{#each relatedContents}}
+                        <li>
+                            <a href="{{path "viewLocation" id=resources.MainLocation languageCode=mainLanguageCode}}">{{ name }}</a>
+                        </li>
+                    {{/each}}
+                    </ul>
+                    {{#if loadingError}}
+                        <div class="ez-asynchronousview-error ez-font-icon">
+                             An error occurred while loading some of the related contents.
+                            <button class="ez-asynchronousview-retry ez-button ez-font-icon pure-button">Retry</button>
+                        </div>
+                    {{/if}}
+                {{else}}
+                    {{#if loadingError}}
+                        <div class="ez-asynchronousview-error ez-font-icon">
+                            An error occurred while loading some of the related contents.
+                            <button class="ez-asynchronousview-retry ez-button ez-font-icon pure-button">Retry</button>
+                        </div>
+                    {{else}}
+                       <div class="ez-font-icon ez-asynchronousview-loading">Loading the related contents</div>
+                    {{/if}}
+                {{/if}}
+            {{/if}}
+    </div></div>
+</div>
